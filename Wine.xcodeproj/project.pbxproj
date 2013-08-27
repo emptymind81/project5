@@ -51,6 +51,7 @@
 		B7B1224D17B1425B00A6A1D4 /* seri2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1224917B1425B00A6A1D4 /* seri2.png */; };
 		B7B1224E17B1425B00A6A1D4 /* seri3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1224A17B1425B00A6A1D4 /* seri3.png */; };
 		B7B1224F17B1425B00A6A1D4 /* seri4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1224B17B1425B00A6A1D4 /* seri4.png */; };
+		B7B64E1317CCD7150040E0F0 /* Wine.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E1217CCD7150040E0F0 /* Wine.entitlements */; };
 		B7B66DFC17C8CCC800352AB1 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DFB17C8CCC700352AB1 /* appicon.png */; };
 		B7B66DFE17C8CDF200352AB1 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DFD17C8CDF100352AB1 /* Default-Landscape~ipad.png */; };
 /* End PBXBuildFile section */
@@ -85,7 +86,6 @@
 		B772D14617C5288D00C7AC4C /* UIImage+ColorAtPixel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorAtPixel.m"; sourceTree = "<group>"; };
 		B772D15217C52FD200C7AC4C /* UIDraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDraggableView.h; sourceTree = "<group>"; };
 		B772D15317C52FD200C7AC4C /* UIDraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDraggableView.m; sourceTree = "<group>"; };
-		B776AAC017C65F7A00840E2A /* Dulux.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Dulux.entitlements; sourceTree = "<group>"; };
 		B7898CEC17B22BBF00B1D3EC /* DoorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsViewController.h; sourceTree = "<group>"; };
 		B7898CED17B22BBF00B1D3EC /* DoorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorsViewController.m; sourceTree = "<group>"; };
 		B7898CEE17B22BBF00B1D3EC /* DoorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoorsViewController.xib; sourceTree = "<group>"; };
@@ -116,6 +116,7 @@
 		B7B1224917B1425B00A6A1D4 /* seri2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seri2.png; path = resource/seri2.png; sourceTree = "<group>"; };
 		B7B1224A17B1425B00A6A1D4 /* seri3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seri3.png; path = resource/seri3.png; sourceTree = "<group>"; };
 		B7B1224B17B1425B00A6A1D4 /* seri4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seri4.png; path = resource/seri4.png; sourceTree = "<group>"; };
+		B7B64E1217CCD7150040E0F0 /* Wine.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Wine.entitlements; sourceTree = "<group>"; };
 		B7B66DFB17C8CCC700352AB1 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
 		B7B66DFD17C8CDF100352AB1 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,7 +165,7 @@
 			children = (
 				B7B66DFD17C8CDF100352AB1 /* Default-Landscape~ipad.png */,
 				B7B66DFB17C8CCC700352AB1 /* appicon.png */,
-				B7B1222B17B13A3A00A6A1D4 /* Wine */,
+				B7B1222B17B13A3A00A6A1D4 /* Dulux */,
 				B7B1222417B13A3A00A6A1D4 /* Frameworks */,
 				B7B1222317B13A3A00A6A1D4 /* Products */,
 			);
@@ -196,7 +197,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B7B1222B17B13A3A00A6A1D4 /* Wine */ = {
+		B7B1222B17B13A3A00A6A1D4 /* Dulux */ = {
 			isa = PBXGroup;
 			children = (
 				B7898CF117B382EB00B1D3EC /* AutoLayoutHelper.h */,
@@ -223,14 +224,13 @@
 				B7AEDB3817CA3343009E29BA /* GlobalFunctions.h */,
 				B7AEDB3917CA3343009E29BA /* GlobalFunctions.m */,
 			);
-			name = Wine;
 			path = Dulux;
 			sourceTree = "<group>";
 		};
 		B7B1222C17B13A3A00A6A1D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B776AAC017C65F7A00840E2A /* Dulux.entitlements */,
+				B7B64E1217CCD7150040E0F0 /* Wine.entitlements */,
 				B7B1222D17B13A3A00A6A1D4 /* Wine-Info.plist */,
 				B7B1222E17B13A3A00A6A1D4 /* InfoPlist.strings */,
 				B7B1223117B13A3A00A6A1D4 /* main.m */,
@@ -332,6 +332,7 @@
 				B71A60FB17C6059200C04BE9 /* topleft-normal.png in Resources */,
 				B7B66DFC17C8CCC800352AB1 /* appicon.png in Resources */,
 				B7B66DFE17C8CDF200352AB1 /* Default-Landscape~ipad.png in Resources */,
+				B7B64E1317CCD7150040E0F0 /* Wine.entitlements in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +442,7 @@
 		B7B1224617B13A3B00A6A1D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Dulux/Dulux.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Wine.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -472,7 +473,7 @@
 		B7B1224717B13A3B00A6A1D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Dulux/Dulux.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Wine.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
