@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DoorsBigViewController : UIViewController
+@interface WineBigViewController : UIViewController
 
-@property int seriIndex;
-@property int roomIndex;
+@property int wineIndex;
+
 @end

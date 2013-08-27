@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DoorsViewController : UIViewController
+@interface WinesViewController : UIViewController
 
 @property int seriIndex;
 @end

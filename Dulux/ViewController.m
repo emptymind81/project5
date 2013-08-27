@@ -7,7 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "DoorsViewController.h"
+#import "WinesViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import "MediaPlayer/MPMoviePlayerViewController.h"
+#import "MediaPlayer/MPMoviePlayerController.h"
 
 @interface ViewController ()
 
@@ -19,6 +22,10 @@
     
     UIView* m_flash_view;
     UIView* m_kv_view;
+    
+    NSMutableArray* m_buttons;
+    
+    MPMoviePlayerController* m_movie_player;
 }
 
 - (void)viewDidLoad
@@ -26,9 +33,6 @@
     [super viewDidLoad];
 	
     //self.view.backgroundColor = [UIColor blueColor];
-    
-    
-    [self removeFlashAndKV];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -51,15 +55,40 @@
       button.frame = CGRectMake(0, 0,100, 20);
    }];*/
     
-    [self clearRecognizers];
-    [self addRecognizers];
-   
-    [self removeFlashAndKV];
+    NSString* back_pic = @"home-background.jpg";
+    UIImage* image = [UIImage imageNamed:back_pic];
+    /*NSString* back_pic = @"whitewall.png";
+     image = [image imageWithGradientTintColor:[UIColor orangeColor]];*/
+    UIImageView* back_image_view = [[UIImageView alloc] initWithImage:image];
+    [self.view addSubview:back_image_view];
+    
+    int first_button_x = 285;
+    int first_button_y = 546;
+    m_buttons = [[NSMutableArray alloc] init];
+    for(int i=0; i<4; i++)
+    {
+        int x = first_button_x + i * 124;
+        NSString* button_pic = @"home-button1.png";
+        if (i != 0)
+        {
+            button_pic = @"home-button2.png";
+        }
+        
+        UIImage* button_image = [UIImage imageNamed:button_pic];
+        UIButton* button = [[UIButton alloc] init];
+        button.frame = CGRectMake(x, first_button_y, 85, 85);
+        [button setImage:button_image forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+
+        
+        [self.view addSubview:button];
+        [m_buttons addObject:button];
+    }
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [self removeFlashAndKV];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,70 +97,125 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) addRecognizers
-{
-    m_image_views = [[NSMutableArray alloc] initWithObjects:self.imageView1, self.imageView2, self.imageView3, self.imageView4, nil];
-    for (int i=0; i<m_image_views.count; i++)
-    {
-        UIImageView* view = m_image_views[i];
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-        [view addGestureRecognizer:singleTap];
-    }
-}
 
-- (void) clearRecognizers
+-(void) buttonClicked:(id)sender
 {
-    for (int i=0; i<m_image_views.count; i++)
+    int index = -1;
+    for (int i=0; i<m_buttons.count; i++)
     {
-        UIImageView* view = m_image_views[i];
-        for (int i=0; i<view.gestureRecognizers.count; i++)
+        if (m_buttons[i] == sender)
         {
-            UIGestureRecognizer* recognizer = view.gestureRecognizers[i];
-            [view removeGestureRecognizer:recognizer];
+            index = i;
+            break;
         }
     }
     
-}
-
-- (void) disableRecognizers
-{
-    for (int i=0; i<m_image_views.count; i++)
+    if (index == 0)
     {
-        UIImageView* view = m_image_views[i];
-        for (int i=0; i<view.gestureRecognizers.count; i++)
+        WinesViewController* view_controller = [[WinesViewController alloc] initWithNibName:@"WinesViewController" bundle:nil];
+        [self.navigationController pushViewController:view_controller animated:false];
+    }
+    else
+    {
+        NSURL *url = nil;
+        if (index-1 == 0)
         {
-            UIGestureRecognizer* recognizer = view.gestureRecognizers[i];
-            recognizer.enabled = false;
+            url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"movie1" ofType:@"m4v"]];
         }
-    }
-}
-
-- (void) enableRecognizers
-{
-    for (int i=0; i<m_image_views.count; i++)
-    {
-        UIImageView* view = m_image_views[i];
-        for (int i=0; i<view.gestureRecognizers.count; i++)
+        else if (index-1 == 1)
         {
-            UIGestureRecognizer* recognizer = view.gestureRecognizers[i];
-            recognizer.enabled = false;
+            url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"RGS+video+final" ofType:@"mov"]];
         }
+        else if (index-1 == 2)
+        {
+            url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ALCHEMY_EDIT_006-H264_720P" ofType:@"mov"]];
+        }
+        MPMoviePlayerViewController * playerController = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(moviePlayerWillExitFullscreen:)
+                                                     name:MPMoviePlayerWillExitFullscreenNotification
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinishedCallback:)
+                                                     name:MPMoviePlayerPlaybackDidFinishNotification
+                                                   object:[playerController moviePlayer]];
+        
+        playerController.moviePlayer.controlStyle = MPMovieControlModeVolumeOnly;
+        [playerController.moviePlayer setFullscreen:YES];
+        
+        playerController.moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
+        //playerController.moviePlayer.fullscreen = true;
+        playerController.moviePlayer.movieSourceType = MPMovieSourceTypeFile;
+        
+        [self presentMoviePlayerViewControllerAnimated:(MPMoviePlayerViewController *)playerController];
+        
+        
+        [playerController.moviePlayer play];
+        
+        /*m_movie_player  = [[MPMoviePlayerController alloc] initWithContentURL:url];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(moviePlayerWillExitFullscreen:)
+                                                     name:MPMoviePlayerWillExitFullscreenNotification
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinishedCallback:)
+                                                     name:MPMoviePlayerPlaybackDidFinishNotification
+                                                   object:m_movie_player];
+        
+        m_movie_player.controlStyle = MPMovieControlStyleDefault;
+        //m_movie_player.fullscreen = true;
+        
+        m_movie_player.scalingMode = MPMovieScalingModeAspectFill;
+        [m_movie_player.view setFrame:self.view.bounds];
+        [m_movie_player.view setBackgroundColor:[UIColor clearColor]];
+        
+        [self.view addSubview:m_movie_player.view];
+        //[m_movie_player play];
+        
+        m_movie_player.shouldAutoplay=YES;
+        
+        [m_movie_player setControlStyle:MPMovieControlStyleDefault];
+        
+        [m_movie_player setFullscreen:YES animated:YES]; 
+        
+        [m_movie_player.view setFrame:self.view.bounds];
+        
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+        [self.view addGestureRecognizer:singleTap];*/
     }
 }
 
-
-- (void) removeFlashAndKV
+- (void)moviePlayerWillExitFullscreen:(NSNotification *)theNotification
 {
-    if (m_flash_view)
-    {
-        [m_flash_view removeFromSuperview];
-        m_flash_view = nil;
-    }
-    if (m_kv_view)
-    {
-        [m_kv_view removeFromSuperview];
-        m_kv_view = nil;
-    }
+    
+    MPMoviePlayerController *playerController = [theNotification object];
+    
+    [playerController stop];
+    //[self dismissMoviePlayerViewControllerAnimated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerWillExitFullscreenNotification
+                                                  object:nil];
+    [m_movie_player.view removeFromSuperview];
+    
+}
+
+- (void) movieFinishedCallback:(NSNotification*) aNotification
+{
+    MPMoviePlayerController *playerController = [aNotification object];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                  object:playerController];
+    [playerController stop];
+    
+    [m_movie_player.view removeFromSuperview];
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)tapRecognizer {
+    
+    [m_movie_player setControlStyle:MPMovieControlStyleEmbedded];
 }
 
 - (void) switchToFlash:(int)seriIndex flashImageName:(NSString*)flashImageName
@@ -179,26 +263,10 @@
                          
                          //[image_view removeFromSuperview];
                          
-                         DoorsViewController* view_controller = [[DoorsViewController alloc] initWithNibName:@"DoorsViewController" bundle:nil];
-                         view_controller.seriIndex = seriIndex;
+                         WinesViewController* view_controller = [[WinesViewController alloc] initWithNibName:@"WinesViewController" bundle:nil];
                          [self.navigationController pushViewController:view_controller animated:false];
                      }];
 }
 
-- (void)handleTap:(UITapGestureRecognizer *)tapRecognizer {
-   
-    for (int i=0; i<m_image_views.count; i++)
-    {
-        UIImageView* view = m_image_views[i];
-        if (view == tapRecognizer.view)
-        {
-            NSLog(@"tap .....");
-            [self clearRecognizers];
-            
-            NSString* flash_image_name = [NSString stringWithFormat:@"%@%d-flash.jpg", @"seri", i+1];
-            [self switchToFlash:i flashImageName:flash_image_name];
-        }
-    }
-}
 
 @end

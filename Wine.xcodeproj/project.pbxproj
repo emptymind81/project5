@@ -23,15 +23,11 @@
 		B73CDBCF17B3F4640065D69F /* room1.png in Resources */ = {isa = PBXBuildFile; fileRef = B73CDBC917B3F4640065D69F /* room1.png */; };
 		B73CDBD017B3F4640065D69F /* room1colored.png in Resources */ = {isa = PBXBuildFile; fileRef = B73CDBCA17B3F4640065D69F /* room1colored.png */; };
 		B73CDBD517B3F5B80065D69F /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B73CDBD317B3F5B80065D69F /* RoomViewController.xib */; };
-		B740890217C2749C008FAF50 /* DoorsBigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B74088FF17C2749C008FAF50 /* DoorsBigViewController.m */; };
-		B740890317C2749C008FAF50 /* DoorsBigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B740890017C2749C008FAF50 /* DoorsBigViewController.xib */; };
 		B772D13F17C51F0400C7AC4C /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = B772D13E17C51F0400C7AC4C /* UIImage+Tint.m */; };
 		B772D14717C5288D00C7AC4C /* MyCategoryIVars.mm in Sources */ = {isa = PBXBuildFile; fileRef = B772D14217C5288D00C7AC4C /* MyCategoryIVars.mm */; };
 		B772D14817C5288D00C7AC4C /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = B772D14417C5288D00C7AC4C /* UIImage+Alpha.m */; };
 		B772D14917C5288D00C7AC4C /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = B772D14617C5288D00C7AC4C /* UIImage+ColorAtPixel.m */; };
 		B772D15417C52FD200C7AC4C /* UIDraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B772D15317C52FD200C7AC4C /* UIDraggableView.m */; };
-		B7898CEF17B22BBF00B1D3EC /* DoorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7898CED17B22BBF00B1D3EC /* DoorsViewController.m */; };
-		B7898CF017B22BBF00B1D3EC /* DoorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7898CEE17B22BBF00B1D3EC /* DoorsViewController.xib */; };
 		B7898CF317B382EC00B1D3EC /* AutoLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B7898CF217B382EC00B1D3EC /* AutoLayoutHelper.m */; };
 		B7AEDB3A17CA3343009E29BA /* GlobalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = B7AEDB3917CA3343009E29BA /* GlobalFunctions.m */; };
 		B7B0A72017B687D0001E8DAD /* UIRoundRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7B0A71F17B687D0001E8DAD /* UIRoundRectView.m */; };
@@ -51,9 +47,64 @@
 		B7B1224D17B1425B00A6A1D4 /* seri2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1224917B1425B00A6A1D4 /* seri2.png */; };
 		B7B1224E17B1425B00A6A1D4 /* seri3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1224A17B1425B00A6A1D4 /* seri3.png */; };
 		B7B1224F17B1425B00A6A1D4 /* seri4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1224B17B1425B00A6A1D4 /* seri4.png */; };
-		B7B64E1317CCD7150040E0F0 /* Wine.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E1217CCD7150040E0F0 /* Wine.entitlements */; };
+		B7B64E1817CCEE100040E0F0 /* home-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E1517CCEE100040E0F0 /* home-background.jpg */; };
+		B7B64E1917CCEE100040E0F0 /* home-button2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E1617CCEE100040E0F0 /* home-button2.png */; };
+		B7B64E1A17CCEE100040E0F0 /* home-button1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E1717CCEE100040E0F0 /* home-button1.png */; };
+		B7B64E1C17CCF0A60040E0F0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B64E1B17CCF0A60040E0F0 /* MediaPlayer.framework */; };
+		B7B64E2017CCF8A10040E0F0 /* WinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7B64E1D17CCF8A00040E0F0 /* WinesViewController.m */; };
+		B7B64E2117CCF8A10040E0F0 /* WinesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E1E17CCF8A00040E0F0 /* WinesViewController.xib */; };
+		B7B64E2417CD00410040E0F0 /* wines-back-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E2217CD00410040E0F0 /* wines-back-button.png */; };
+		B7B64E2517CD00410040E0F0 /* wines-back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E2317CD00410040E0F0 /* wines-back.jpg */; };
+		B7B64E4117CD17090040E0F0 /* single-9.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E2817CD17090040E0F0 /* single-9.png */; };
+		B7B64E4217CD17090040E0F0 /* single-8.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E2917CD17090040E0F0 /* single-8.png */; };
+		B7B64E4317CD17090040E0F0 /* single-7.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E2A17CD17090040E0F0 /* single-7.png */; };
+		B7B64E4417CD17090040E0F0 /* single-6.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E2B17CD17090040E0F0 /* single-6.png */; };
+		B7B64E4517CD17090040E0F0 /* single-5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E2C17CD17090040E0F0 /* single-5.png */; };
+		B7B64E4617CD17090040E0F0 /* single-4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E2D17CD17090040E0F0 /* single-4.png */; };
+		B7B64E4717CD17090040E0F0 /* single-3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E2E17CD17090040E0F0 /* single-3.png */; };
+		B7B64E4817CD17090040E0F0 /* single-2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E2F17CD17090040E0F0 /* single-2.png */; };
+		B7B64E4917CD17090040E0F0 /* single-1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3017CD17090040E0F0 /* single-1.png */; };
+		B7B64E4A17CD17090040E0F0 /* wine2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3117CD17090040E0F0 /* wine2.png */; };
+		B7B64E4B17CD17090040E0F0 /* wine6.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3217CD17090040E0F0 /* wine6.png */; };
+		B7B64E4C17CD17090040E0F0 /* wine5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3317CD17090040E0F0 /* wine5.png */; };
+		B7B64E4D17CD17090040E0F0 /* wine1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3417CD17090040E0F0 /* wine1.png */; };
+		B7B64E4E17CD17090040E0F0 /* wine3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3517CD17090040E0F0 /* wine3.png */; };
+		B7B64E4F17CD17090040E0F0 /* wine4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3617CD17090040E0F0 /* wine4.png */; };
+		B7B64E5017CD17090040E0F0 /* single-16.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3717CD17090040E0F0 /* single-16.png */; };
+		B7B64E5117CD17090040E0F0 /* single-15.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3817CD17090040E0F0 /* single-15.png */; };
+		B7B64E5217CD17090040E0F0 /* single-14.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3917CD17090040E0F0 /* single-14.png */; };
+		B7B64E5317CD17090040E0F0 /* single-13.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3A17CD17090040E0F0 /* single-13.png */; };
+		B7B64E5417CD17090040E0F0 /* single-12.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3B17CD17090040E0F0 /* single-12.png */; };
+		B7B64E5517CD17090040E0F0 /* single-11.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3C17CD17090040E0F0 /* single-11.png */; };
+		B7B64E5617CD17090040E0F0 /* single-10.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3D17CD17090040E0F0 /* single-10.png */; };
+		B7B64E5717CD17090040E0F0 /* rightbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3E17CD17090040E0F0 /* rightbutton.png */; };
+		B7B64E5817CD17090040E0F0 /* leftbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E3F17CD17090040E0F0 /* leftbutton.png */; };
+		B7B64E5917CD17090040E0F0 /* single-back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E4017CD17090040E0F0 /* single-back.jpg */; };
+		B7B64E5D17CD18E00040E0F0 /* WineBigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7B64E5A17CD18DF0040E0F0 /* WineBigViewController.m */; };
+		B7B64E5E17CD18E00040E0F0 /* WineBigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E5C17CD18E00040E0F0 /* WineBigViewController.xib */; };
+		B7B64E6A17CD32230040E0F0 /* wine7.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E6117CD32230040E0F0 /* wine7.png */; };
+		B7B64E6B17CD32230040E0F0 /* wine8.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E6217CD32230040E0F0 /* wine8.png */; };
+		B7B64E6C17CD32230040E0F0 /* wine9.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E6317CD32230040E0F0 /* wine9.png */; };
+		B7B64E6D17CD32230040E0F0 /* wine10.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E6417CD32230040E0F0 /* wine10.png */; };
+		B7B64E6E17CD32230040E0F0 /* wine11.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E6517CD32230040E0F0 /* wine11.png */; };
+		B7B64E6F17CD32230040E0F0 /* wine12.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E6617CD32230040E0F0 /* wine12.png */; };
+		B7B64E7017CD32230040E0F0 /* wine13.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E6717CD32230040E0F0 /* wine13.png */; };
+		B7B64E7117CD32230040E0F0 /* wine14.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E6817CD32230040E0F0 /* wine14.png */; };
+		B7B64E7217CD32230040E0F0 /* wine15.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E6917CD32230040E0F0 /* wine15.png */; };
+		B7B64E7717CD34550040E0F0 /* wine16.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E7317CD34540040E0F0 /* wine16.png */; };
+		B7B64E7817CD34550040E0F0 /* wine17.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E7417CD34540040E0F0 /* wine17.png */; };
+		B7B64E7917CD34550040E0F0 /* wine18.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E7517CD34550040E0F0 /* wine18.png */; };
+		B7B64E7A17CD34550040E0F0 /* wine19.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E7617CD34550040E0F0 /* wine19.png */; };
+		B7B64E8017CD3B270040E0F0 /* wine20.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E7B17CD3B270040E0F0 /* wine20.png */; };
+		B7B64E8117CD3B270040E0F0 /* wine21.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E7C17CD3B270040E0F0 /* wine21.png */; };
+		B7B64E8217CD3B270040E0F0 /* wine22.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E7D17CD3B270040E0F0 /* wine22.png */; };
+		B7B64E8317CD3B270040E0F0 /* wine23.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E7E17CD3B270040E0F0 /* wine23.png */; };
+		B7B64E8417CD3B270040E0F0 /* wine24.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E7F17CD3B270040E0F0 /* wine24.png */; };
+		B7B64E8717CD48C20040E0F0 /* ALCHEMY_EDIT_006-H264_720P.mov in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E8517CD48C20040E0F0 /* ALCHEMY_EDIT_006-H264_720P.mov */; };
+		B7B64E8817CD48C20040E0F0 /* RGS+video+final.mov in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E8617CD48C20040E0F0 /* RGS+video+final.mov */; };
+		B7B64E8A17CD48F10040E0F0 /* movie1.m4v in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E8917CD48F00040E0F0 /* movie1.m4v */; };
+		B7B64E8C17CD4CF80040E0F0 /* logo72.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E8B17CD4CF70040E0F0 /* logo72.png */; };
 		B7B66DFC17C8CCC800352AB1 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DFB17C8CCC700352AB1 /* appicon.png */; };
-		B7B66DFE17C8CDF200352AB1 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DFD17C8CDF100352AB1 /* Default-Landscape~ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,9 +124,6 @@
 		B73CDBC917B3F4640065D69F /* room1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = room1.png; path = resource/room1.png; sourceTree = "<group>"; };
 		B73CDBCA17B3F4640065D69F /* room1colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = room1colored.png; path = resource/room1colored.png; sourceTree = "<group>"; };
 		B73CDBD317B3F5B80065D69F /* RoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
-		B74088FF17C2749C008FAF50 /* DoorsBigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorsBigViewController.m; sourceTree = "<group>"; };
-		B740890017C2749C008FAF50 /* DoorsBigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoorsBigViewController.xib; sourceTree = "<group>"; };
-		B740890117C2749C008FAF50 /* DoorsBigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsBigViewController.h; sourceTree = "<group>"; };
 		B772D13D17C51F0400C7AC4C /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Tint.h"; path = "../UIImage+Tint.h"; sourceTree = "<group>"; };
 		B772D13E17C51F0400C7AC4C /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Tint.m"; path = "../UIImage+Tint.m"; sourceTree = "<group>"; };
 		B772D14117C5288D00C7AC4C /* MyCategoryIVars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCategoryIVars.h; sourceTree = "<group>"; };
@@ -86,9 +134,6 @@
 		B772D14617C5288D00C7AC4C /* UIImage+ColorAtPixel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorAtPixel.m"; sourceTree = "<group>"; };
 		B772D15217C52FD200C7AC4C /* UIDraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDraggableView.h; sourceTree = "<group>"; };
 		B772D15317C52FD200C7AC4C /* UIDraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDraggableView.m; sourceTree = "<group>"; };
-		B7898CEC17B22BBF00B1D3EC /* DoorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsViewController.h; sourceTree = "<group>"; };
-		B7898CED17B22BBF00B1D3EC /* DoorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorsViewController.m; sourceTree = "<group>"; };
-		B7898CEE17B22BBF00B1D3EC /* DoorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoorsViewController.xib; sourceTree = "<group>"; };
 		B7898CF117B382EB00B1D3EC /* AutoLayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutHelper.h; sourceTree = "<group>"; };
 		B7898CF217B382EC00B1D3EC /* AutoLayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutHelper.m; sourceTree = "<group>"; };
 		B7AEDB3817CA3343009E29BA /* GlobalFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalFunctions.h; sourceTree = "<group>"; };
@@ -116,7 +161,65 @@
 		B7B1224917B1425B00A6A1D4 /* seri2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seri2.png; path = resource/seri2.png; sourceTree = "<group>"; };
 		B7B1224A17B1425B00A6A1D4 /* seri3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seri3.png; path = resource/seri3.png; sourceTree = "<group>"; };
 		B7B1224B17B1425B00A6A1D4 /* seri4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seri4.png; path = resource/seri4.png; sourceTree = "<group>"; };
-		B7B64E1217CCD7150040E0F0 /* Wine.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Wine.entitlements; sourceTree = "<group>"; };
+		B7B64E1517CCEE100040E0F0 /* home-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "home-background.jpg"; path = "pics/home-background.jpg"; sourceTree = "<group>"; };
+		B7B64E1617CCEE100040E0F0 /* home-button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-button2.png"; path = "pics/home-button2.png"; sourceTree = "<group>"; };
+		B7B64E1717CCEE100040E0F0 /* home-button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-button1.png"; path = "pics/home-button1.png"; sourceTree = "<group>"; };
+		B7B64E1B17CCF0A60040E0F0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		B7B64E1D17CCF8A00040E0F0 /* WinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinesViewController.m; sourceTree = "<group>"; };
+		B7B64E1E17CCF8A00040E0F0 /* WinesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinesViewController.xib; sourceTree = "<group>"; };
+		B7B64E1F17CCF8A10040E0F0 /* WinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinesViewController.h; sourceTree = "<group>"; };
+		B7B64E2217CD00410040E0F0 /* wines-back-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wines-back-button.png"; path = "pics/wines-back-button.png"; sourceTree = "<group>"; };
+		B7B64E2317CD00410040E0F0 /* wines-back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "wines-back.jpg"; path = "pics/wines-back.jpg"; sourceTree = "<group>"; };
+		B7B64E2817CD17090040E0F0 /* single-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-9.png"; path = "pics/single-9.png"; sourceTree = "<group>"; };
+		B7B64E2917CD17090040E0F0 /* single-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-8.png"; path = "pics/single-8.png"; sourceTree = "<group>"; };
+		B7B64E2A17CD17090040E0F0 /* single-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-7.png"; path = "pics/single-7.png"; sourceTree = "<group>"; };
+		B7B64E2B17CD17090040E0F0 /* single-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-6.png"; path = "pics/single-6.png"; sourceTree = "<group>"; };
+		B7B64E2C17CD17090040E0F0 /* single-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-5.png"; path = "pics/single-5.png"; sourceTree = "<group>"; };
+		B7B64E2D17CD17090040E0F0 /* single-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-4.png"; path = "pics/single-4.png"; sourceTree = "<group>"; };
+		B7B64E2E17CD17090040E0F0 /* single-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-3.png"; path = "pics/single-3.png"; sourceTree = "<group>"; };
+		B7B64E2F17CD17090040E0F0 /* single-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-2.png"; path = "pics/single-2.png"; sourceTree = "<group>"; };
+		B7B64E3017CD17090040E0F0 /* single-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-1.png"; path = "pics/single-1.png"; sourceTree = "<group>"; };
+		B7B64E3117CD17090040E0F0 /* wine2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine2.png; path = pics/wine2.png; sourceTree = "<group>"; };
+		B7B64E3217CD17090040E0F0 /* wine6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine6.png; path = pics/wine6.png; sourceTree = "<group>"; };
+		B7B64E3317CD17090040E0F0 /* wine5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine5.png; path = pics/wine5.png; sourceTree = "<group>"; };
+		B7B64E3417CD17090040E0F0 /* wine1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine1.png; path = pics/wine1.png; sourceTree = "<group>"; };
+		B7B64E3517CD17090040E0F0 /* wine3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine3.png; path = pics/wine3.png; sourceTree = "<group>"; };
+		B7B64E3617CD17090040E0F0 /* wine4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine4.png; path = pics/wine4.png; sourceTree = "<group>"; };
+		B7B64E3717CD17090040E0F0 /* single-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-16.png"; path = "pics/single-16.png"; sourceTree = "<group>"; };
+		B7B64E3817CD17090040E0F0 /* single-15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-15.png"; path = "pics/single-15.png"; sourceTree = "<group>"; };
+		B7B64E3917CD17090040E0F0 /* single-14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-14.png"; path = "pics/single-14.png"; sourceTree = "<group>"; };
+		B7B64E3A17CD17090040E0F0 /* single-13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-13.png"; path = "pics/single-13.png"; sourceTree = "<group>"; };
+		B7B64E3B17CD17090040E0F0 /* single-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-12.png"; path = "pics/single-12.png"; sourceTree = "<group>"; };
+		B7B64E3C17CD17090040E0F0 /* single-11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-11.png"; path = "pics/single-11.png"; sourceTree = "<group>"; };
+		B7B64E3D17CD17090040E0F0 /* single-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "single-10.png"; path = "pics/single-10.png"; sourceTree = "<group>"; };
+		B7B64E3E17CD17090040E0F0 /* rightbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightbutton.png; path = pics/rightbutton.png; sourceTree = "<group>"; };
+		B7B64E3F17CD17090040E0F0 /* leftbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftbutton.png; path = pics/leftbutton.png; sourceTree = "<group>"; };
+		B7B64E4017CD17090040E0F0 /* single-back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "single-back.jpg"; path = "pics/single-back.jpg"; sourceTree = "<group>"; };
+		B7B64E5A17CD18DF0040E0F0 /* WineBigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineBigViewController.m; sourceTree = "<group>"; };
+		B7B64E5B17CD18DF0040E0F0 /* WineBigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineBigViewController.h; sourceTree = "<group>"; };
+		B7B64E5C17CD18E00040E0F0 /* WineBigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineBigViewController.xib; sourceTree = "<group>"; };
+		B7B64E6117CD32230040E0F0 /* wine7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine7.png; path = pics/wine7.png; sourceTree = "<group>"; };
+		B7B64E6217CD32230040E0F0 /* wine8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine8.png; path = pics/wine8.png; sourceTree = "<group>"; };
+		B7B64E6317CD32230040E0F0 /* wine9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine9.png; path = pics/wine9.png; sourceTree = "<group>"; };
+		B7B64E6417CD32230040E0F0 /* wine10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine10.png; path = pics/wine10.png; sourceTree = "<group>"; };
+		B7B64E6517CD32230040E0F0 /* wine11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine11.png; path = pics/wine11.png; sourceTree = "<group>"; };
+		B7B64E6617CD32230040E0F0 /* wine12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine12.png; path = pics/wine12.png; sourceTree = "<group>"; };
+		B7B64E6717CD32230040E0F0 /* wine13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine13.png; path = pics/wine13.png; sourceTree = "<group>"; };
+		B7B64E6817CD32230040E0F0 /* wine14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine14.png; path = pics/wine14.png; sourceTree = "<group>"; };
+		B7B64E6917CD32230040E0F0 /* wine15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine15.png; path = pics/wine15.png; sourceTree = "<group>"; };
+		B7B64E7317CD34540040E0F0 /* wine16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine16.png; path = pics/wine16.png; sourceTree = "<group>"; };
+		B7B64E7417CD34540040E0F0 /* wine17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine17.png; path = pics/wine17.png; sourceTree = "<group>"; };
+		B7B64E7517CD34550040E0F0 /* wine18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine18.png; path = pics/wine18.png; sourceTree = "<group>"; };
+		B7B64E7617CD34550040E0F0 /* wine19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine19.png; path = pics/wine19.png; sourceTree = "<group>"; };
+		B7B64E7B17CD3B270040E0F0 /* wine20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine20.png; path = pics/wine20.png; sourceTree = "<group>"; };
+		B7B64E7C17CD3B270040E0F0 /* wine21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine21.png; path = pics/wine21.png; sourceTree = "<group>"; };
+		B7B64E7D17CD3B270040E0F0 /* wine22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine22.png; path = pics/wine22.png; sourceTree = "<group>"; };
+		B7B64E7E17CD3B270040E0F0 /* wine23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine23.png; path = pics/wine23.png; sourceTree = "<group>"; };
+		B7B64E7F17CD3B270040E0F0 /* wine24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine24.png; path = pics/wine24.png; sourceTree = "<group>"; };
+		B7B64E8517CD48C20040E0F0 /* ALCHEMY_EDIT_006-H264_720P.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = "ALCHEMY_EDIT_006-H264_720P.mov"; path = "pics/ALCHEMY_EDIT_006-H264_720P.mov"; sourceTree = "<group>"; };
+		B7B64E8617CD48C20040E0F0 /* RGS+video+final.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = "RGS+video+final.mov"; path = "pics/RGS+video+final.mov"; sourceTree = "<group>"; };
+		B7B64E8917CD48F00040E0F0 /* movie1.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = movie1.m4v; path = pics/movie1.m4v; sourceTree = "<group>"; };
+		B7B64E8B17CD4CF70040E0F0 /* logo72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo72.png; sourceTree = "<group>"; };
 		B7B66DFB17C8CCC700352AB1 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
 		B7B66DFD17C8CDF100352AB1 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7B64E1C17CCF0A60040E0F0 /* MediaPlayer.framework in Frameworks */,
 				B71A609617BE2F5B00C04BE9 /* CoreTelephony.framework in Frameworks */,
 				B71A609417BE2F5000C04BE9 /* libstdc++.dylib in Frameworks */,
 				B71A609217BE2F3700C04BE9 /* libsqlite3.dylib in Frameworks */,
@@ -163,6 +267,8 @@
 		B7B1221917B13A3A00A6A1D4 = {
 			isa = PBXGroup;
 			children = (
+				B7B64E8B17CD4CF70040E0F0 /* logo72.png */,
+				B7B64E1B17CCF0A60040E0F0 /* MediaPlayer.framework */,
 				B7B66DFD17C8CDF100352AB1 /* Default-Landscape~ipad.png */,
 				B7B66DFB17C8CCC700352AB1 /* appicon.png */,
 				B7B1222B17B13A3A00A6A1D4 /* Dulux */,
@@ -200,18 +306,19 @@
 		B7B1222B17B13A3A00A6A1D4 /* Dulux */ = {
 			isa = PBXGroup;
 			children = (
+				B7B64E5A17CD18DF0040E0F0 /* WineBigViewController.m */,
+				B7B64E5B17CD18DF0040E0F0 /* WineBigViewController.h */,
+				B7B64E5C17CD18E00040E0F0 /* WineBigViewController.xib */,
+				B7B64E1D17CCF8A00040E0F0 /* WinesViewController.m */,
+				B7B64E1E17CCF8A00040E0F0 /* WinesViewController.xib */,
+				B7B64E1F17CCF8A10040E0F0 /* WinesViewController.h */,
+				B7B64E1417CCEDDC0040E0F0 /* Pics */,
 				B7898CF117B382EB00B1D3EC /* AutoLayoutHelper.h */,
 				B7898CF217B382EC00B1D3EC /* AutoLayoutHelper.m */,
 				B772D14017C5288D00C7AC4C /* UIImage+ColorAtPixel */,
-				B7898CEC17B22BBF00B1D3EC /* DoorsViewController.h */,
-				B7898CED17B22BBF00B1D3EC /* DoorsViewController.m */,
-				B74088FF17C2749C008FAF50 /* DoorsBigViewController.m */,
-				B740890117C2749C008FAF50 /* DoorsBigViewController.h */,
 				B7B0A71E17B687D0001E8DAD /* UIRoundRectView.h */,
 				B7B0A71F17B687D0001E8DAD /* UIRoundRectView.m */,
 				B73CDBD317B3F5B80065D69F /* RoomViewController.xib */,
-				B7898CEE17B22BBF00B1D3EC /* DoorsViewController.xib */,
-				B740890017C2749C008FAF50 /* DoorsBigViewController.xib */,
 				B7B1223417B13A3A00A6A1D4 /* AppDelegate.h */,
 				B7B1223517B13A3B00A6A1D4 /* AppDelegate.m */,
 				B7B1223D17B13A3B00A6A1D4 /* ViewController.h */,
@@ -230,7 +337,6 @@
 		B7B1222C17B13A3A00A6A1D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B7B64E1217CCD7150040E0F0 /* Wine.entitlements */,
 				B7B1222D17B13A3A00A6A1D4 /* Wine-Info.plist */,
 				B7B1222E17B13A3A00A6A1D4 /* InfoPlist.strings */,
 				B7B1223117B13A3A00A6A1D4 /* main.m */,
@@ -257,6 +363,64 @@
 				B7B1224B17B1425B00A6A1D4 /* seri4.png */,
 			);
 			name = resource;
+			sourceTree = "<group>";
+		};
+		B7B64E1417CCEDDC0040E0F0 /* Pics */ = {
+			isa = PBXGroup;
+			children = (
+				B7B64E8917CD48F00040E0F0 /* movie1.m4v */,
+				B7B64E8517CD48C20040E0F0 /* ALCHEMY_EDIT_006-H264_720P.mov */,
+				B7B64E8617CD48C20040E0F0 /* RGS+video+final.mov */,
+				B7B64E7B17CD3B270040E0F0 /* wine20.png */,
+				B7B64E7C17CD3B270040E0F0 /* wine21.png */,
+				B7B64E7D17CD3B270040E0F0 /* wine22.png */,
+				B7B64E7E17CD3B270040E0F0 /* wine23.png */,
+				B7B64E7F17CD3B270040E0F0 /* wine24.png */,
+				B7B64E7317CD34540040E0F0 /* wine16.png */,
+				B7B64E7417CD34540040E0F0 /* wine17.png */,
+				B7B64E7517CD34550040E0F0 /* wine18.png */,
+				B7B64E7617CD34550040E0F0 /* wine19.png */,
+				B7B64E6117CD32230040E0F0 /* wine7.png */,
+				B7B64E6217CD32230040E0F0 /* wine8.png */,
+				B7B64E6317CD32230040E0F0 /* wine9.png */,
+				B7B64E6417CD32230040E0F0 /* wine10.png */,
+				B7B64E6517CD32230040E0F0 /* wine11.png */,
+				B7B64E6617CD32230040E0F0 /* wine12.png */,
+				B7B64E6717CD32230040E0F0 /* wine13.png */,
+				B7B64E6817CD32230040E0F0 /* wine14.png */,
+				B7B64E6917CD32230040E0F0 /* wine15.png */,
+				B7B64E2817CD17090040E0F0 /* single-9.png */,
+				B7B64E2917CD17090040E0F0 /* single-8.png */,
+				B7B64E2A17CD17090040E0F0 /* single-7.png */,
+				B7B64E2B17CD17090040E0F0 /* single-6.png */,
+				B7B64E2C17CD17090040E0F0 /* single-5.png */,
+				B7B64E2D17CD17090040E0F0 /* single-4.png */,
+				B7B64E2E17CD17090040E0F0 /* single-3.png */,
+				B7B64E2F17CD17090040E0F0 /* single-2.png */,
+				B7B64E3017CD17090040E0F0 /* single-1.png */,
+				B7B64E3117CD17090040E0F0 /* wine2.png */,
+				B7B64E3217CD17090040E0F0 /* wine6.png */,
+				B7B64E3317CD17090040E0F0 /* wine5.png */,
+				B7B64E3417CD17090040E0F0 /* wine1.png */,
+				B7B64E3517CD17090040E0F0 /* wine3.png */,
+				B7B64E3617CD17090040E0F0 /* wine4.png */,
+				B7B64E3717CD17090040E0F0 /* single-16.png */,
+				B7B64E3817CD17090040E0F0 /* single-15.png */,
+				B7B64E3917CD17090040E0F0 /* single-14.png */,
+				B7B64E3A17CD17090040E0F0 /* single-13.png */,
+				B7B64E3B17CD17090040E0F0 /* single-12.png */,
+				B7B64E3C17CD17090040E0F0 /* single-11.png */,
+				B7B64E3D17CD17090040E0F0 /* single-10.png */,
+				B7B64E3E17CD17090040E0F0 /* rightbutton.png */,
+				B7B64E3F17CD17090040E0F0 /* leftbutton.png */,
+				B7B64E4017CD17090040E0F0 /* single-back.jpg */,
+				B7B64E2217CD00410040E0F0 /* wines-back-button.png */,
+				B7B64E2317CD00410040E0F0 /* wines-back.jpg */,
+				B7B64E1517CCEE100040E0F0 /* home-background.jpg */,
+				B7B64E1617CCEE100040E0F0 /* home-button2.png */,
+				B7B64E1717CCEE100040E0F0 /* home-button1.png */,
+			);
+			name = Pics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,7 +483,6 @@
 				B7B1224D17B1425B00A6A1D4 /* seri2.png in Resources */,
 				B7B1224E17B1425B00A6A1D4 /* seri3.png in Resources */,
 				B7B1224F17B1425B00A6A1D4 /* seri4.png in Resources */,
-				B7898CF017B22BBF00B1D3EC /* DoorsViewController.xib in Resources */,
 				B73CDBCB17B3F4640065D69F /* door101.png in Resources */,
 				B73CDBCC17B3F4640065D69F /* door102.png in Resources */,
 				B73CDBCD17B3F4640065D69F /* door102open.png in Resources */,
@@ -327,12 +490,63 @@
 				B73CDBCF17B3F4640065D69F /* room1.png in Resources */,
 				B73CDBD017B3F4640065D69F /* room1colored.png in Resources */,
 				B73CDBD517B3F5B80065D69F /* RoomViewController.xib in Resources */,
-				B740890317C2749C008FAF50 /* DoorsBigViewController.xib in Resources */,
 				B71A60F917C5FC2A00C04BE9 /* button-normal.png in Resources */,
 				B71A60FB17C6059200C04BE9 /* topleft-normal.png in Resources */,
 				B7B66DFC17C8CCC800352AB1 /* appicon.png in Resources */,
-				B7B66DFE17C8CDF200352AB1 /* Default-Landscape~ipad.png in Resources */,
-				B7B64E1317CCD7150040E0F0 /* Wine.entitlements in Resources */,
+				B7B64E1817CCEE100040E0F0 /* home-background.jpg in Resources */,
+				B7B64E1917CCEE100040E0F0 /* home-button2.png in Resources */,
+				B7B64E1A17CCEE100040E0F0 /* home-button1.png in Resources */,
+				B7B64E2117CCF8A10040E0F0 /* WinesViewController.xib in Resources */,
+				B7B64E2417CD00410040E0F0 /* wines-back-button.png in Resources */,
+				B7B64E2517CD00410040E0F0 /* wines-back.jpg in Resources */,
+				B7B64E4117CD17090040E0F0 /* single-9.png in Resources */,
+				B7B64E4217CD17090040E0F0 /* single-8.png in Resources */,
+				B7B64E4317CD17090040E0F0 /* single-7.png in Resources */,
+				B7B64E4417CD17090040E0F0 /* single-6.png in Resources */,
+				B7B64E4517CD17090040E0F0 /* single-5.png in Resources */,
+				B7B64E4617CD17090040E0F0 /* single-4.png in Resources */,
+				B7B64E4717CD17090040E0F0 /* single-3.png in Resources */,
+				B7B64E4817CD17090040E0F0 /* single-2.png in Resources */,
+				B7B64E4917CD17090040E0F0 /* single-1.png in Resources */,
+				B7B64E4A17CD17090040E0F0 /* wine2.png in Resources */,
+				B7B64E4B17CD17090040E0F0 /* wine6.png in Resources */,
+				B7B64E4C17CD17090040E0F0 /* wine5.png in Resources */,
+				B7B64E4D17CD17090040E0F0 /* wine1.png in Resources */,
+				B7B64E4E17CD17090040E0F0 /* wine3.png in Resources */,
+				B7B64E4F17CD17090040E0F0 /* wine4.png in Resources */,
+				B7B64E5017CD17090040E0F0 /* single-16.png in Resources */,
+				B7B64E5117CD17090040E0F0 /* single-15.png in Resources */,
+				B7B64E5217CD17090040E0F0 /* single-14.png in Resources */,
+				B7B64E5317CD17090040E0F0 /* single-13.png in Resources */,
+				B7B64E5417CD17090040E0F0 /* single-12.png in Resources */,
+				B7B64E5517CD17090040E0F0 /* single-11.png in Resources */,
+				B7B64E5617CD17090040E0F0 /* single-10.png in Resources */,
+				B7B64E5717CD17090040E0F0 /* rightbutton.png in Resources */,
+				B7B64E5817CD17090040E0F0 /* leftbutton.png in Resources */,
+				B7B64E5917CD17090040E0F0 /* single-back.jpg in Resources */,
+				B7B64E5E17CD18E00040E0F0 /* WineBigViewController.xib in Resources */,
+				B7B64E6A17CD32230040E0F0 /* wine7.png in Resources */,
+				B7B64E6B17CD32230040E0F0 /* wine8.png in Resources */,
+				B7B64E6C17CD32230040E0F0 /* wine9.png in Resources */,
+				B7B64E6D17CD32230040E0F0 /* wine10.png in Resources */,
+				B7B64E6E17CD32230040E0F0 /* wine11.png in Resources */,
+				B7B64E6F17CD32230040E0F0 /* wine12.png in Resources */,
+				B7B64E7017CD32230040E0F0 /* wine13.png in Resources */,
+				B7B64E7117CD32230040E0F0 /* wine14.png in Resources */,
+				B7B64E7217CD32230040E0F0 /* wine15.png in Resources */,
+				B7B64E7717CD34550040E0F0 /* wine16.png in Resources */,
+				B7B64E7817CD34550040E0F0 /* wine17.png in Resources */,
+				B7B64E7917CD34550040E0F0 /* wine18.png in Resources */,
+				B7B64E7A17CD34550040E0F0 /* wine19.png in Resources */,
+				B7B64E8017CD3B270040E0F0 /* wine20.png in Resources */,
+				B7B64E8117CD3B270040E0F0 /* wine21.png in Resources */,
+				B7B64E8217CD3B270040E0F0 /* wine22.png in Resources */,
+				B7B64E8317CD3B270040E0F0 /* wine23.png in Resources */,
+				B7B64E8417CD3B270040E0F0 /* wine24.png in Resources */,
+				B7B64E8717CD48C20040E0F0 /* ALCHEMY_EDIT_006-H264_720P.mov in Resources */,
+				B7B64E8817CD48C20040E0F0 /* RGS+video+final.mov in Resources */,
+				B7B64E8A17CD48F10040E0F0 /* movie1.m4v in Resources */,
+				B7B64E8C17CD4CF80040E0F0 /* logo72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,16 +560,16 @@
 				B7B1223217B13A3A00A6A1D4 /* main.m in Sources */,
 				B7B1223617B13A3B00A6A1D4 /* AppDelegate.m in Sources */,
 				B7B1223F17B13A3B00A6A1D4 /* ViewController.m in Sources */,
-				B7898CEF17B22BBF00B1D3EC /* DoorsViewController.m in Sources */,
 				B7898CF317B382EC00B1D3EC /* AutoLayoutHelper.m in Sources */,
 				B7B0A72017B687D0001E8DAD /* UIRoundRectView.m in Sources */,
-				B740890217C2749C008FAF50 /* DoorsBigViewController.m in Sources */,
 				B772D13F17C51F0400C7AC4C /* UIImage+Tint.m in Sources */,
 				B772D14717C5288D00C7AC4C /* MyCategoryIVars.mm in Sources */,
 				B772D14817C5288D00C7AC4C /* UIImage+Alpha.m in Sources */,
 				B772D14917C5288D00C7AC4C /* UIImage+ColorAtPixel.m in Sources */,
 				B772D15417C52FD200C7AC4C /* UIDraggableView.m in Sources */,
 				B7AEDB3A17CA3343009E29BA /* GlobalFunctions.m in Sources */,
+				B7B64E2017CCF8A10040E0F0 /* WinesViewController.m in Sources */,
+				B7B64E5D17CD18E00040E0F0 /* WineBigViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
