@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WinesViewController : UIViewController
+@interface WinesViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property int seriIndex;
 @end

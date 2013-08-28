@@ -29,6 +29,9 @@
 		B772D14917C5288D00C7AC4C /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = B772D14617C5288D00C7AC4C /* UIImage+ColorAtPixel.m */; };
 		B772D15417C52FD200C7AC4C /* UIDraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B772D15317C52FD200C7AC4C /* UIDraggableView.m */; };
 		B7898CF317B382EC00B1D3EC /* AutoLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B7898CF217B382EC00B1D3EC /* AutoLayoutHelper.m */; };
+		B796A71A17CDE31500DD3AF3 /* logo72-3.png in Resources */ = {isa = PBXBuildFile; fileRef = B796A71917CDE31500DD3AF3 /* logo72-3.png */; };
+		B796A72217CDEFF600DD3AF3 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A71C17CDEFF600DD3AF3 /* ImageCell.m */; };
+		B796A72317CDEFF600DD3AF3 /* ImageTableLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A71E17CDEFF600DD3AF3 /* ImageTableLayout.m */; };
 		B7AEDB3A17CA3343009E29BA /* GlobalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = B7AEDB3917CA3343009E29BA /* GlobalFunctions.m */; };
 		B7B0A72017B687D0001E8DAD /* UIRoundRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7B0A71F17B687D0001E8DAD /* UIRoundRectView.m */; };
 		B7B0A72217B68C11001E8DAD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B0A72117B68C11001E8DAD /* QuartzCore.framework */; };
@@ -104,6 +107,7 @@
 		B7B64E8817CD48C20040E0F0 /* RGS+video+final.mov in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E8617CD48C20040E0F0 /* RGS+video+final.mov */; };
 		B7B64E8A17CD48F10040E0F0 /* movie1.m4v in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E8917CD48F00040E0F0 /* movie1.m4v */; };
 		B7B64E8C17CD4CF80040E0F0 /* logo72.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E8B17CD4CF70040E0F0 /* logo72.png */; };
+		B7B64E8E17CD5A980040E0F0 /* logo72-2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B64E8D17CD5A980040E0F0 /* logo72-2.png */; };
 		B7B66DFC17C8CCC800352AB1 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DFB17C8CCC700352AB1 /* appicon.png */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +140,11 @@
 		B772D15317C52FD200C7AC4C /* UIDraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDraggableView.m; sourceTree = "<group>"; };
 		B7898CF117B382EB00B1D3EC /* AutoLayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutHelper.h; sourceTree = "<group>"; };
 		B7898CF217B382EC00B1D3EC /* AutoLayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutHelper.m; sourceTree = "<group>"; };
+		B796A71917CDE31500DD3AF3 /* logo72-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo72-3.png"; sourceTree = "<group>"; };
+		B796A71C17CDEFF600DD3AF3 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		B796A71D17CDEFF600DD3AF3 /* ImageTableLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableLayout.h; sourceTree = "<group>"; };
+		B796A71E17CDEFF600DD3AF3 /* ImageTableLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableLayout.m; sourceTree = "<group>"; };
+		B796A72017CDEFF600DD3AF3 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		B7AEDB3817CA3343009E29BA /* GlobalFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalFunctions.h; sourceTree = "<group>"; };
 		B7AEDB3917CA3343009E29BA /* GlobalFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalFunctions.m; sourceTree = "<group>"; };
 		B7B0A71E17B687D0001E8DAD /* UIRoundRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoundRectView.h; sourceTree = "<group>"; };
@@ -220,6 +229,7 @@
 		B7B64E8617CD48C20040E0F0 /* RGS+video+final.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = "RGS+video+final.mov"; path = "pics/RGS+video+final.mov"; sourceTree = "<group>"; };
 		B7B64E8917CD48F00040E0F0 /* movie1.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = movie1.m4v; path = pics/movie1.m4v; sourceTree = "<group>"; };
 		B7B64E8B17CD4CF70040E0F0 /* logo72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo72.png; sourceTree = "<group>"; };
+		B7B64E8D17CD5A980040E0F0 /* logo72-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo72-2.png"; sourceTree = "<group>"; };
 		B7B66DFB17C8CCC700352AB1 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
 		B7B66DFD17C8CDF100352AB1 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,6 +277,8 @@
 		B7B1221917B13A3A00A6A1D4 = {
 			isa = PBXGroup;
 			children = (
+				B796A71917CDE31500DD3AF3 /* logo72-3.png */,
+				B7B64E8D17CD5A980040E0F0 /* logo72-2.png */,
 				B7B64E8B17CD4CF70040E0F0 /* logo72.png */,
 				B7B64E1B17CCF0A60040E0F0 /* MediaPlayer.framework */,
 				B7B66DFD17C8CDF100352AB1 /* Default-Landscape~ipad.png */,
@@ -306,6 +318,10 @@
 		B7B1222B17B13A3A00A6A1D4 /* Dulux */ = {
 			isa = PBXGroup;
 			children = (
+				B796A71C17CDEFF600DD3AF3 /* ImageCell.m */,
+				B796A72017CDEFF600DD3AF3 /* ImageCell.h */,
+				B796A71E17CDEFF600DD3AF3 /* ImageTableLayout.m */,
+				B796A71D17CDEFF600DD3AF3 /* ImageTableLayout.h */,
 				B7B64E5A17CD18DF0040E0F0 /* WineBigViewController.m */,
 				B7B64E5B17CD18DF0040E0F0 /* WineBigViewController.h */,
 				B7B64E5C17CD18E00040E0F0 /* WineBigViewController.xib */,
@@ -547,6 +563,8 @@
 				B7B64E8817CD48C20040E0F0 /* RGS+video+final.mov in Resources */,
 				B7B64E8A17CD48F10040E0F0 /* movie1.m4v in Resources */,
 				B7B64E8C17CD4CF80040E0F0 /* logo72.png in Resources */,
+				B7B64E8E17CD5A980040E0F0 /* logo72-2.png in Resources */,
+				B796A71A17CDE31500DD3AF3 /* logo72-3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +588,8 @@
 				B7AEDB3A17CA3343009E29BA /* GlobalFunctions.m in Sources */,
 				B7B64E2017CCF8A10040E0F0 /* WinesViewController.m in Sources */,
 				B7B64E5D17CD18E00040E0F0 /* WineBigViewController.m in Sources */,
+				B796A72217CDEFF600DD3AF3 /* ImageCell.m in Sources */,
+				B796A72317CDEFF600DD3AF3 /* ImageTableLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,13 @@
 #import "AutoLayoutHelper.h"
 #import "WineBigViewController.h"
 #import "UIImage+Tint.h"
+#import "ImageTableLayout.h"
+#import "ImageCell.h"
+
+NSString *kDetailedViewControllerID = @"DetailView";    // view controller storyboard id
+NSString *kCellID = @"cellID";        // UICollectionViewCell storyboard id
+
+NSString *CollectionViewCellIdentifier = @"ImageCollectionViewCellIdentifier";
 
 @interface WinesViewController ()
 
@@ -32,6 +39,9 @@
     int m_space_between;
     
     int m_wines_num;
+    
+    UICollectionView* m_collection_view;
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -50,47 +60,60 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
     
     NSString* back_pic = @"wines-back.jpg";
     UIImage* image = [UIImage imageNamed:back_pic];
     UIImageView* back_image_view = [[UIImageView alloc] initWithImage:image];
     [self.view addSubview:back_image_view];
     
-    m_image_views = [[NSMutableArray alloc] init];
-    if (first_init) {
-        m_current_x = m_x_margin;
-    }
-    first_init = false;
-    int pos = m_current_x;
+    /*m_image_views = [[NSMutableArray alloc] init];
+     if (first_init) {
+     m_current_x = m_x_margin;
+     }
+     first_init = false;
+     int pos = m_current_x;
+     for (int i=0; i<m_wines_num; i++)
+     {
+     NSString* image_name = [NSString stringWithFormat:@"wine%d", i+1];
+     UIImage* image = [UIImage imageNamed:image_name];
+     UIImageView* image_view = [[UIImageView alloc] initWithImage:image];
+     image_view.frame = CGRectMake(pos, 768-83-image_view.frame.size.height, image_view.frame.size.width, image_view.frame.size.height);
+     
+     //image_view.translatesAutoresizingMaskIntoConstraints = false;
+     image_view.contentMode = UIViewContentModeScaleToFill;
+     image_view.userInteractionEnabled = true;
+     
+     [self.view addSubview:image_view];
+     [m_image_views addObject:image_view];
+     pos += image.size.width + m_space_between;
+     }*/
+    
+    NSMutableArray* image_array = [[NSMutableArray alloc] init];
     for (int i=0; i<m_wines_num; i++)
     {
         NSString* image_name = [NSString stringWithFormat:@"wine%d", i+1];
         UIImage* image = [UIImage imageNamed:image_name];
-        UIImageView* image_view = [[UIImageView alloc] initWithImage:image];
-        image_view.frame = CGRectMake(pos, 768-83-image_view.frame.size.height, image_view.frame.size.width, image_view.frame.size.height);
-        
-        //image_view.translatesAutoresizingMaskIntoConstraints = false;
-        image_view.contentMode = UIViewContentModeScaleToFill;
-        image_view.userInteractionEnabled = true;
-        
-        [self.view addSubview:image_view];
-        [m_image_views addObject:image_view];
-        
-        /*UIButton* button = [[UIButton alloc] init];
-        button.frame = CGRectMake(current_x, 768-83-image.size.height, image.size.width, image.size.height);
-        [button setImage:image forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(wineClicked:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [self.view addSubview:button];
-         [m_image_views addObject:button];*/
-        
-        pos += image.size.width + m_space_between;
+        [image_array addObject:image];
     }
+    
+    ImageTableLayout *layout = [[ImageTableLayout alloc] init];
+    layout.imageArray = image_array;
+    layout.spaceBetweenImage = m_space_between;
+    
+    int max_height = [self GetMaxHeight:m_wines_num];
+    CGRect frame = CGRectMake(0, 768-83-max_height, 1024, max_height);
+    m_collection_view = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
+    m_collection_view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    m_collection_view.delegate = self;
+    m_collection_view.dataSource = self;
+    m_collection_view.backgroundColor = [UIColor clearColor];
+    [m_collection_view registerClass:[ImageCell class] forCellWithReuseIdentifier:CollectionViewCellIdentifier];
+    m_collection_view.allowsMultipleSelection = false;
+    
+    [self.view addSubview:m_collection_view];
+    
+    //m_collection_view.layer.borderColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.5 alpha:1].CGColor;
+    //m_collection_view.layer.borderWidth = 2.0f;
     
     NSString* back_button_pic = @"wines-back-button.png";
     UIImage* back_button_image = [UIImage imageNamed:back_button_pic];
@@ -102,7 +125,29 @@
     
     //[self initSwipeRecognizers];
     
-    [self addRecognizers];
+    //[self addRecognizers];
+}
+
+-(int) GetMaxHeight:(int)imageNum
+{
+    int max_height = 0;
+    for (int i=0; i<imageNum; i++)
+    {
+        NSString* image_name = [NSString stringWithFormat:@"wine%d", i+1];
+        UIImage* image = [UIImage imageNamed:image_name];
+        if (image.size.height > max_height)
+        {
+            max_height = image.size.height;
+        }
+    }
+    return max_height;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -281,6 +326,47 @@
     }
 }
 
+- (void) handleImageClick:(int)imageIndex
+{
+    int detail_wine_index = imageIndex;
+    if (imageIndex == 10 || imageIndex == 12 || imageIndex == 13 || imageIndex == 16  ||
+        imageIndex == 18 || imageIndex == 20 || imageIndex == 22 || imageIndex == 23)
+    {
+        return;
+    }
+    if (imageIndex == 11) {
+        detail_wine_index = imageIndex - 1;
+    }
+    if (imageIndex >= 14) {
+        detail_wine_index = imageIndex - 3;
+    }
+    if (imageIndex >= 17) {
+        detail_wine_index = imageIndex - 4;
+    }
+    if (imageIndex >= 19) {
+        detail_wine_index = imageIndex - 5;
+    }
+    if (imageIndex >= 21) {
+        detail_wine_index = imageIndex - 6;
+    }
+    if (imageIndex >= 24) {
+        detail_wine_index = imageIndex - 8;
+    }
+    
+    //[self clearRecognizers];
+    
+    [UIView animateWithDuration:0.1
+                     animations:^{
+                         //m_image_view2.alpha = 0.2;
+                         //view.image = [UIImage imageNamed:@"door102open.png"];
+                     }
+                     completion:^(BOOL finished){
+                         //sleep(1);
+                         
+                         [self switchToWine:detail_wine_index];
+                     }];
+}
+
 - (void)handleTap:(UITapGestureRecognizer *)tapRecognizer {
     
     for (int i=0; i<m_image_views.count; i++)
@@ -288,45 +374,7 @@
         UIImageView* view = m_image_views[i];
         if (view == tapRecognizer.view)
         {
-            int detail_wine_index = i;
-            if (i == 10 || i == 12 || i == 13 || i == 16  || i == 18 || i == 20 || i == 22 || i == 23)
-            {
-                continue;
-            }
-            if (i == 11) {
-                detail_wine_index = i - 1;
-            }
-            if (i >= 14) {
-                detail_wine_index = i - 3;
-            }
-            if (i >= 17) {
-                detail_wine_index = i - 4;
-            }
-            if (i >= 19) {
-                detail_wine_index = i - 5;
-            }
-            if (i >= 21) {
-                detail_wine_index = i - 6;
-            }
-            if (i >= 24) {
-                detail_wine_index = i - 8;
-            }
-            
-            NSLog(@"tap in doors.....");
-            [self clearRecognizers];
-            
-            
-            
-            [UIView animateWithDuration:0.1
-                             animations:^{
-                                 //m_image_view2.alpha = 0.2;
-                                 //view.image = [UIImage imageNamed:@"door102open.png"];
-                             }
-                             completion:^(BOOL finished){
-                                 //sleep(1);
-                                 
-                                 [self switchToWine:detail_wine_index];
-                             }];
+            [self handleImageClick:i];
         }
     }
 }
@@ -365,5 +413,81 @@
 {
     [self.navigationController popViewControllerAnimated:TRUE];
 }
+
+
+#pragma mark -
+#pragma mark Collection View Data Source
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CollectionViewCellIdentifier forIndexPath:indexPath];
+    
+    NSString* image_name = [NSString stringWithFormat:@"wine%d", indexPath.row+1];
+    cell.image = [UIImage imageNamed:image_name];
+    cell.frame = CGRectMake(0, 0, cell.image.size.width, cell.image.size.height);
+    
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString* image_name = [NSString stringWithFormat:@"wine%d", indexPath.row+1];
+    UIImage* image = [UIImage imageNamed:image_name];
+    CGSize size = {image.size.width, image.size.height};
+    
+    return size;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+    return m_wines_num;
+}
+
+#pragma mark -
+#pragma mark Collection View Delegate
+
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self handleImageClick:indexPath.row];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	return YES;
+}
+
 
 @end

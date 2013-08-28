@@ -120,7 +120,7 @@
         NSURL *url = nil;
         if (index-1 == 0)
         {
-            url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"movie1" ofType:@"m4v"]];
+            url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ALCHEMY_EDIT_006-H264_720P" ofType:@"mov"]];
         }
         else if (index-1 == 1)
         {
@@ -128,7 +128,7 @@
         }
         else if (index-1 == 2)
         {
-            url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ALCHEMY_EDIT_006-H264_720P" ofType:@"mov"]];
+            url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"movie1" ofType:@"m4v"]];
         }
         MPMoviePlayerViewController * playerController = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
         

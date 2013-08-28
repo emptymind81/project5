@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WineBigViewController : UIViewController
+@interface WineBigViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property int wineIndex;
 
