@@ -97,6 +97,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+//for ios6
+- (BOOL)shouldAutorotate
+{
+    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+    if (orientation == UIInterfaceOrientationLandscapeLeft  ||orientation ==  UIInterfaceOrientationLandscapeRight )
+    {
+        return YES;
+    }
+    return NO;
+}
+
+//for ios5
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft  ||
+        interfaceOrientation ==  UIInterfaceOrientationLandscapeRight )
+    {
+        return YES;
+    }
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return (UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight);
+}
+
 
 -(void) buttonClicked:(id)sender
 {

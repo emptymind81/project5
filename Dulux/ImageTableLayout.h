@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageTableLayout : UICollectionViewLayout
+@interface ImageTableLayout : PSUICollectionViewLayout
 
 @property NSArray* imageArray;
 @property int spaceBetweenImage;
 
-- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (PSUICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

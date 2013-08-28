@@ -32,6 +32,19 @@
 		B796A71A17CDE31500DD3AF3 /* logo72-3.png in Resources */ = {isa = PBXBuildFile; fileRef = B796A71917CDE31500DD3AF3 /* logo72-3.png */; };
 		B796A72217CDEFF600DD3AF3 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A71C17CDEFF600DD3AF3 /* ImageCell.m */; };
 		B796A72317CDEFF600DD3AF3 /* ImageTableLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A71E17CDEFF600DD3AF3 /* ImageTableLayout.m */; };
+		B796A76D17CE1B3E00DD3AF3 /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A75217CE1B3700DD3AF3 /* NSIndexPath+PSTCollectionViewAdditions.m */; };
+		B796A76E17CE1B3E00DD3AF3 /* PSTCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A75417CE1B3700DD3AF3 /* PSTCollectionView.m */; };
+		B796A76F17CE1B3E00DD3AF3 /* PSTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A75617CE1B3700DD3AF3 /* PSTCollectionViewCell.m */; };
+		B796A77017CE1B3E00DD3AF3 /* PSTCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A75917CE1B3800DD3AF3 /* PSTCollectionViewController.m */; };
+		B796A77117CE1B3E00DD3AF3 /* PSTCollectionViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A75B17CE1B3900DD3AF3 /* PSTCollectionViewData.m */; };
+		B796A77217CE1B3E00DD3AF3 /* PSTCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A75D17CE1B3900DD3AF3 /* PSTCollectionViewFlowLayout.m */; };
+		B796A77317CE1B3E00DD3AF3 /* PSTCollectionViewItemKey.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A75F17CE1B3900DD3AF3 /* PSTCollectionViewItemKey.m */; };
+		B796A77417CE1B3E00DD3AF3 /* PSTCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A76117CE1B3A00DD3AF3 /* PSTCollectionViewLayout.m */; };
+		B796A77517CE1B3E00DD3AF3 /* PSTCollectionViewUpdateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A76417CE1B3A00DD3AF3 /* PSTCollectionViewUpdateItem.m */; };
+		B796A77617CE1B3E00DD3AF3 /* PSTGridLayoutInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A76617CE1B3C00DD3AF3 /* PSTGridLayoutInfo.m */; };
+		B796A77717CE1B3E00DD3AF3 /* PSTGridLayoutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A76817CE1B3D00DD3AF3 /* PSTGridLayoutItem.m */; };
+		B796A77817CE1B3E00DD3AF3 /* PSTGridLayoutRow.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A76A17CE1B3D00DD3AF3 /* PSTGridLayoutRow.m */; };
+		B796A77917CE1B3E00DD3AF3 /* PSTGridLayoutSection.m in Sources */ = {isa = PBXBuildFile; fileRef = B796A76C17CE1B3E00DD3AF3 /* PSTGridLayoutSection.m */; };
 		B7AEDB3A17CA3343009E29BA /* GlobalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = B7AEDB3917CA3343009E29BA /* GlobalFunctions.m */; };
 		B7B0A72017B687D0001E8DAD /* UIRoundRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7B0A71F17B687D0001E8DAD /* UIRoundRectView.m */; };
 		B7B0A72217B68C11001E8DAD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B0A72117B68C11001E8DAD /* QuartzCore.framework */; };
@@ -145,6 +158,34 @@
 		B796A71D17CDEFF600DD3AF3 /* ImageTableLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableLayout.h; sourceTree = "<group>"; };
 		B796A71E17CDEFF600DD3AF3 /* ImageTableLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableLayout.m; sourceTree = "<group>"; };
 		B796A72017CDEFF600DD3AF3 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		B796A75117CE1B3600DD3AF3 /* NSIndexPath+PSTCollectionViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSIndexPath+PSTCollectionViewAdditions.h"; path = "PSTCollectionView/NSIndexPath+PSTCollectionViewAdditions.h"; sourceTree = "<group>"; };
+		B796A75217CE1B3700DD3AF3 /* NSIndexPath+PSTCollectionViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSIndexPath+PSTCollectionViewAdditions.m"; path = "PSTCollectionView/NSIndexPath+PSTCollectionViewAdditions.m"; sourceTree = "<group>"; };
+		B796A75317CE1B3700DD3AF3 /* PSTCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTCollectionView.h; path = PSTCollectionView/PSTCollectionView.h; sourceTree = "<group>"; };
+		B796A75417CE1B3700DD3AF3 /* PSTCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTCollectionView.m; path = PSTCollectionView/PSTCollectionView.m; sourceTree = "<group>"; };
+		B796A75517CE1B3700DD3AF3 /* PSTCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTCollectionViewCell.h; path = PSTCollectionView/PSTCollectionViewCell.h; sourceTree = "<group>"; };
+		B796A75617CE1B3700DD3AF3 /* PSTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTCollectionViewCell.m; path = PSTCollectionView/PSTCollectionViewCell.m; sourceTree = "<group>"; };
+		B796A75717CE1B3800DD3AF3 /* PSTCollectionViewCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTCollectionViewCommon.h; path = PSTCollectionView/PSTCollectionViewCommon.h; sourceTree = "<group>"; };
+		B796A75817CE1B3800DD3AF3 /* PSTCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTCollectionViewController.h; path = PSTCollectionView/PSTCollectionViewController.h; sourceTree = "<group>"; };
+		B796A75917CE1B3800DD3AF3 /* PSTCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTCollectionViewController.m; path = PSTCollectionView/PSTCollectionViewController.m; sourceTree = "<group>"; };
+		B796A75A17CE1B3800DD3AF3 /* PSTCollectionViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTCollectionViewData.h; path = PSTCollectionView/PSTCollectionViewData.h; sourceTree = "<group>"; };
+		B796A75B17CE1B3900DD3AF3 /* PSTCollectionViewData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTCollectionViewData.m; path = PSTCollectionView/PSTCollectionViewData.m; sourceTree = "<group>"; };
+		B796A75C17CE1B3900DD3AF3 /* PSTCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTCollectionViewFlowLayout.h; path = PSTCollectionView/PSTCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		B796A75D17CE1B3900DD3AF3 /* PSTCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTCollectionViewFlowLayout.m; path = PSTCollectionView/PSTCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		B796A75E17CE1B3900DD3AF3 /* PSTCollectionViewItemKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTCollectionViewItemKey.h; path = PSTCollectionView/PSTCollectionViewItemKey.h; sourceTree = "<group>"; };
+		B796A75F17CE1B3900DD3AF3 /* PSTCollectionViewItemKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTCollectionViewItemKey.m; path = PSTCollectionView/PSTCollectionViewItemKey.m; sourceTree = "<group>"; };
+		B796A76017CE1B3900DD3AF3 /* PSTCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTCollectionViewLayout.h; path = PSTCollectionView/PSTCollectionViewLayout.h; sourceTree = "<group>"; };
+		B796A76117CE1B3A00DD3AF3 /* PSTCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTCollectionViewLayout.m; path = PSTCollectionView/PSTCollectionViewLayout.m; sourceTree = "<group>"; };
+		B796A76217CE1B3A00DD3AF3 /* PSTCollectionViewLayout+Internals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PSTCollectionViewLayout+Internals.h"; path = "PSTCollectionView/PSTCollectionViewLayout+Internals.h"; sourceTree = "<group>"; };
+		B796A76317CE1B3A00DD3AF3 /* PSTCollectionViewUpdateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTCollectionViewUpdateItem.h; path = PSTCollectionView/PSTCollectionViewUpdateItem.h; sourceTree = "<group>"; };
+		B796A76417CE1B3A00DD3AF3 /* PSTCollectionViewUpdateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTCollectionViewUpdateItem.m; path = PSTCollectionView/PSTCollectionViewUpdateItem.m; sourceTree = "<group>"; };
+		B796A76517CE1B3B00DD3AF3 /* PSTGridLayoutInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTGridLayoutInfo.h; path = PSTCollectionView/PSTGridLayoutInfo.h; sourceTree = "<group>"; };
+		B796A76617CE1B3C00DD3AF3 /* PSTGridLayoutInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTGridLayoutInfo.m; path = PSTCollectionView/PSTGridLayoutInfo.m; sourceTree = "<group>"; };
+		B796A76717CE1B3D00DD3AF3 /* PSTGridLayoutItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTGridLayoutItem.h; path = PSTCollectionView/PSTGridLayoutItem.h; sourceTree = "<group>"; };
+		B796A76817CE1B3D00DD3AF3 /* PSTGridLayoutItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTGridLayoutItem.m; path = PSTCollectionView/PSTGridLayoutItem.m; sourceTree = "<group>"; };
+		B796A76917CE1B3D00DD3AF3 /* PSTGridLayoutRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTGridLayoutRow.h; path = PSTCollectionView/PSTGridLayoutRow.h; sourceTree = "<group>"; };
+		B796A76A17CE1B3D00DD3AF3 /* PSTGridLayoutRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTGridLayoutRow.m; path = PSTCollectionView/PSTGridLayoutRow.m; sourceTree = "<group>"; };
+		B796A76B17CE1B3E00DD3AF3 /* PSTGridLayoutSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTGridLayoutSection.h; path = PSTCollectionView/PSTGridLayoutSection.h; sourceTree = "<group>"; };
+		B796A76C17CE1B3E00DD3AF3 /* PSTGridLayoutSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTGridLayoutSection.m; path = PSTCollectionView/PSTGridLayoutSection.m; sourceTree = "<group>"; };
 		B7AEDB3817CA3343009E29BA /* GlobalFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalFunctions.h; sourceTree = "<group>"; };
 		B7AEDB3917CA3343009E29BA /* GlobalFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalFunctions.m; sourceTree = "<group>"; };
 		B7B0A71E17B687D0001E8DAD /* UIRoundRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoundRectView.h; sourceTree = "<group>"; };
@@ -274,6 +315,41 @@
 			path = "UIImage+ColorAtPixel";
 			sourceTree = "<group>";
 		};
+		B796A77A17CE1B5800DD3AF3 /* PSTCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				B796A75117CE1B3600DD3AF3 /* NSIndexPath+PSTCollectionViewAdditions.h */,
+				B796A75217CE1B3700DD3AF3 /* NSIndexPath+PSTCollectionViewAdditions.m */,
+				B796A75317CE1B3700DD3AF3 /* PSTCollectionView.h */,
+				B796A75417CE1B3700DD3AF3 /* PSTCollectionView.m */,
+				B796A75517CE1B3700DD3AF3 /* PSTCollectionViewCell.h */,
+				B796A75617CE1B3700DD3AF3 /* PSTCollectionViewCell.m */,
+				B796A75717CE1B3800DD3AF3 /* PSTCollectionViewCommon.h */,
+				B796A75817CE1B3800DD3AF3 /* PSTCollectionViewController.h */,
+				B796A75917CE1B3800DD3AF3 /* PSTCollectionViewController.m */,
+				B796A75A17CE1B3800DD3AF3 /* PSTCollectionViewData.h */,
+				B796A75B17CE1B3900DD3AF3 /* PSTCollectionViewData.m */,
+				B796A75C17CE1B3900DD3AF3 /* PSTCollectionViewFlowLayout.h */,
+				B796A75D17CE1B3900DD3AF3 /* PSTCollectionViewFlowLayout.m */,
+				B796A75E17CE1B3900DD3AF3 /* PSTCollectionViewItemKey.h */,
+				B796A75F17CE1B3900DD3AF3 /* PSTCollectionViewItemKey.m */,
+				B796A76017CE1B3900DD3AF3 /* PSTCollectionViewLayout.h */,
+				B796A76117CE1B3A00DD3AF3 /* PSTCollectionViewLayout.m */,
+				B796A76217CE1B3A00DD3AF3 /* PSTCollectionViewLayout+Internals.h */,
+				B796A76317CE1B3A00DD3AF3 /* PSTCollectionViewUpdateItem.h */,
+				B796A76417CE1B3A00DD3AF3 /* PSTCollectionViewUpdateItem.m */,
+				B796A76517CE1B3B00DD3AF3 /* PSTGridLayoutInfo.h */,
+				B796A76617CE1B3C00DD3AF3 /* PSTGridLayoutInfo.m */,
+				B796A76717CE1B3D00DD3AF3 /* PSTGridLayoutItem.h */,
+				B796A76817CE1B3D00DD3AF3 /* PSTGridLayoutItem.m */,
+				B796A76917CE1B3D00DD3AF3 /* PSTGridLayoutRow.h */,
+				B796A76A17CE1B3D00DD3AF3 /* PSTGridLayoutRow.m */,
+				B796A76B17CE1B3E00DD3AF3 /* PSTGridLayoutSection.h */,
+				B796A76C17CE1B3E00DD3AF3 /* PSTGridLayoutSection.m */,
+			);
+			name = PSTCollectionView;
+			sourceTree = "<group>";
+		};
 		B7B1221917B13A3A00A6A1D4 = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +394,7 @@
 		B7B1222B17B13A3A00A6A1D4 /* Dulux */ = {
 			isa = PBXGroup;
 			children = (
+				B796A77A17CE1B5800DD3AF3 /* PSTCollectionView */,
 				B796A71C17CDEFF600DD3AF3 /* ImageCell.m */,
 				B796A72017CDEFF600DD3AF3 /* ImageCell.h */,
 				B796A71E17CDEFF600DD3AF3 /* ImageTableLayout.m */,
@@ -590,6 +667,19 @@
 				B7B64E5D17CD18E00040E0F0 /* WineBigViewController.m in Sources */,
 				B796A72217CDEFF600DD3AF3 /* ImageCell.m in Sources */,
 				B796A72317CDEFF600DD3AF3 /* ImageTableLayout.m in Sources */,
+				B796A76D17CE1B3E00DD3AF3 /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
+				B796A76E17CE1B3E00DD3AF3 /* PSTCollectionView.m in Sources */,
+				B796A76F17CE1B3E00DD3AF3 /* PSTCollectionViewCell.m in Sources */,
+				B796A77017CE1B3E00DD3AF3 /* PSTCollectionViewController.m in Sources */,
+				B796A77117CE1B3E00DD3AF3 /* PSTCollectionViewData.m in Sources */,
+				B796A77217CE1B3E00DD3AF3 /* PSTCollectionViewFlowLayout.m in Sources */,
+				B796A77317CE1B3E00DD3AF3 /* PSTCollectionViewItemKey.m in Sources */,
+				B796A77417CE1B3E00DD3AF3 /* PSTCollectionViewLayout.m in Sources */,
+				B796A77517CE1B3E00DD3AF3 /* PSTCollectionViewUpdateItem.m in Sources */,
+				B796A77617CE1B3E00DD3AF3 /* PSTGridLayoutInfo.m in Sources */,
+				B796A77717CE1B3E00DD3AF3 /* PSTGridLayoutItem.m in Sources */,
+				B796A77817CE1B3E00DD3AF3 /* PSTGridLayoutRow.m in Sources */,
+				B796A77917CE1B3E00DD3AF3 /* PSTGridLayoutSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,7 +781,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dulux/Wine-Prefix.pch";
 				INFOPLIST_FILE = "Dulux/Wine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dulux/ShareSDK_v2.3.1/Extend/SDKExport\"",
@@ -722,7 +812,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dulux/Wine-Prefix.pch";
 				INFOPLIST_FILE = "Dulux/Wine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dulux/ShareSDK_v2.3.1/Extend/SDKExport\"",

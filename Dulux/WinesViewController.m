@@ -40,7 +40,7 @@ NSString *CollectionViewCellIdentifier = @"ImageCollectionViewCellIdentifier";
     
     int m_wines_num;
     
-    UICollectionView* m_collection_view;
+    PSUICollectionView* m_collection_view;
     
 }
 
@@ -102,13 +102,15 @@ NSString *CollectionViewCellIdentifier = @"ImageCollectionViewCellIdentifier";
     
     int max_height = [self GetMaxHeight:m_wines_num];
     CGRect frame = CGRectMake(0, 768-83-max_height, 1024, max_height);
-    m_collection_view = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
+    m_collection_view = [[PSUICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
     m_collection_view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     m_collection_view.delegate = self;
     m_collection_view.dataSource = self;
     m_collection_view.backgroundColor = [UIColor clearColor];
     [m_collection_view registerClass:[ImageCell class] forCellWithReuseIdentifier:CollectionViewCellIdentifier];
     m_collection_view.allowsMultipleSelection = false;
+    m_collection_view.showsHorizontalScrollIndicator=NO;
+    m_collection_view.showsVerticalScrollIndicator=NO;
     
     [self.view addSubview:m_collection_view];
     
@@ -418,7 +420,7 @@ NSString *CollectionViewCellIdentifier = @"ImageCollectionViewCellIdentifier";
 #pragma mark -
 #pragma mark Collection View Data Source
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (PSUICollectionViewCell *)collectionView:(PSUICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CollectionViewCellIdentifier forIndexPath:indexPath];
     
@@ -429,7 +431,7 @@ NSString *CollectionViewCellIdentifier = @"ImageCollectionViewCellIdentifier";
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+- (CGSize)collectionView:(PSUICollectionView *)collectionView layout:(PSUICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* image_name = [NSString stringWithFormat:@"wine%d", indexPath.row+1];
     UIImage* image = [UIImage imageNamed:image_name];
@@ -438,49 +440,49 @@ NSString *CollectionViewCellIdentifier = @"ImageCollectionViewCellIdentifier";
     return size;
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+- (NSInteger)numberOfSectionsInCollectionView:(PSUICollectionView *)collectionView
 {
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(PSUICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     return m_wines_num;
 }
 
 #pragma mark -
 #pragma mark Collection View Delegate
 
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(PSUICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(PSUICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(PSUICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [self handleImageClick:indexPath.row];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(PSUICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)collectionView:(PSUICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)collectionView:(PSUICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)collectionView:(PSUICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }

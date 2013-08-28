@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ImageCell : UICollectionViewCell
+@interface ImageCell : PSUICollectionViewCell
 {
     
 }

@@ -50,14 +50,14 @@
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    //UICollectionView* view = self.collectionView;
+    //PSUICollectionView* view = self.collectionView;
     
     NSMutableArray* array = [[NSMutableArray alloc] init];
     int pos = 0;
     for (int i=0; i<self.imageArray.count; i++)
     {
         NSIndexPath* path = [NSIndexPath indexPathForRow:i inSection:0];
-        UICollectionViewLayoutAttributes* attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:path];
+        PSUICollectionViewLayoutAttributes* attributes = [PSUICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:path];
         
         UIImage* image = self.imageArray[i];
         
@@ -76,12 +76,12 @@
     return array;
 }
 
-- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
+- (PSUICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //UICollectionViewLayoutAttributes* res = [super layoutAttributesForItemAtIndexPath:indexPath];
+    //PSUICollectionViewLayoutAttributes* res = [super layoutAttributesForItemAtIndexPath:indexPath];
     //res.frame = CGRectMake(100, 0, res.frame.size.width/2, res.frame.size.height);
     
-    UICollectionViewLayoutAttributes* attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    PSUICollectionViewLayoutAttributes* attributes = [PSUICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     
     int pos = 0;
     for (int i=0; i<indexPath.row; i++)

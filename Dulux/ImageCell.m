@@ -40,6 +40,7 @@
         CGRect rect = self.frame;
         rect = m_image_view.frame;
         m_image_view.frame = self.bounds;
+        m_image_view.contentMode = UIViewContentModeTopLeft;
         //m_image_view.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:m_image_view];
          

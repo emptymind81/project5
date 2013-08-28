@@ -37,7 +37,7 @@ typedef enum
     
     int m_total_wine_num;
     
-    UICollectionView* m_collection_view;
+    PSUICollectionView* m_collection_view;
     
     UIButton* m_back_button;
 }
@@ -155,7 +155,7 @@ typedef enum
     layout.spaceBetweenImage = 0;
     
     CGRect frame = CGRectMake(0, 0, 1024, 768);
-    m_collection_view = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
+    m_collection_view = [[PSUICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
     m_collection_view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     m_collection_view.delegate = self;
     m_collection_view.dataSource = self;
@@ -163,10 +163,13 @@ typedef enum
     [m_collection_view registerClass:[ImageCell class] forCellWithReuseIdentifier:WineCollectionViewCellIdentifier];
     m_collection_view.allowsMultipleSelection = false;
     [m_collection_view setScrollEnabled:NO];
+    m_collection_view.showsHorizontalScrollIndicator=NO;
+    m_collection_view.showsVerticalScrollIndicator=NO;
     
     [self.view addSubview:m_collection_view];
     
     m_collection_view.contentOffset = CGPointMake(1024*self.wineIndex, 0);
+    
     
     [self doOtherInit];
 
@@ -201,12 +204,6 @@ typedef enum
     [m_back_button addTarget:self action:@selector(navigateBack:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:m_back_button];
     
-    NSArray* sub_views = self.view.subviews;
-    for (int i=0; i<sub_views.count; i++)
-    {
-        UIView* view = sub_views[i];
-        view.translatesAutoresizingMaskIntoConstraints = false;
-    }
     
     //[self initNavigateButtons];
     
@@ -359,6 +356,20 @@ typedef enum
     [self showButtons:false];
     [self enableButtons:false];
     [self enableRecognizers:false];
+    
+    m_collection_view.contentOffset = CGPointMake(m_collection_view.contentOffset.x-1024, m_collection_view.contentOffset.y);
+    self.wineIndex = (self.wineIndex-1+m_total_wine_num) % m_total_wine_num;
+    
+    [self showButtons:true];
+    [self enableButtons:true];
+    [self enableRecognizers:true];
+    
+    [self updateButtonStatus];
+    [self updateBackButtonFrame];
+    
+    
+    
+    /*
     [UIView animateWithDuration:0.5
                      animations:^{
                          
@@ -366,13 +377,11 @@ typedef enum
                      }
                      completion:^(BOOL finished){
                          
-                         [self showButtons:true];
-                         [self enableButtons:true];
-                         [self enableRecognizers:true];
+                         
                          self.wineIndex = (self.wineIndex-1+m_total_wine_num) % m_total_wine_num;
                          [self updateButtonStatus];
                          [self updateBackButtonFrame];
-                     }];
+                     }];*/
 }
 
 - (void) goRight:(id)sender
@@ -383,6 +392,22 @@ typedef enum
     }
     
     [self showButtons:false];
+    [self enableButtons:false];
+    [self enableRecognizers:false];
+    
+    m_collection_view.contentOffset = CGPointMake(m_collection_view.contentOffset.x+1024, m_collection_view.contentOffset.y);
+    self.wineIndex = (self.wineIndex+1+m_total_wine_num) % m_total_wine_num;
+    
+    [self showButtons:true];
+    [self enableButtons:true];
+    [self enableRecognizers:true];
+    
+    [self updateButtonStatus];
+    [self updateBackButtonFrame];
+    
+    
+    
+    /*[self showButtons:false];
     [self enableButtons:false];
     [self enableRecognizers:false];
     [UIView animateWithDuration:0.5
@@ -398,7 +423,7 @@ typedef enum
                          self.wineIndex = (self.wineIndex+1+m_total_wine_num) % m_total_wine_num;
                          [self updateButtonStatus];
                          [self updateBackButtonFrame];
-                     }];
+                     }];*/
 }
 
 - (void) initNavigateButtons
@@ -457,7 +482,7 @@ typedef enum
 #pragma mark -
 #pragma mark Collection View Data Source
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (PSUICollectionViewCell *)collectionView:(PSUICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:WineCollectionViewCellIdentifier forIndexPath:indexPath];
     
@@ -466,7 +491,7 @@ typedef enum
     cell.frame = CGRectMake(indexPath.row*1024, 0, cell.image.size.width, cell.image.size.height);
     
     /*
-    //UICollectionViewCell* cell = [[UICollectionViewCell alloc] init];
+    //PSUICollectionViewCell* cell = [[PSUICollectionViewCell alloc] init];
     cell.frame = CGRectMake(0, 0, 1024, 768);
   
     UIImage* image = [UIImage imageNamed:image_name];
@@ -477,7 +502,7 @@ typedef enum
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+- (CGSize)collectionView:(PSUICollectionView *)collectionView layout:(PSUICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* image_name = [NSString stringWithFormat:@"single-%d", indexPath.row+1];
     UIImage* image = [UIImage imageNamed:image_name];
@@ -486,48 +511,48 @@ typedef enum
     return size;
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+- (NSInteger)numberOfSectionsInCollectionView:(PSUICollectionView *)collectionView
 {
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(PSUICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     return m_total_wine_num;
 }
 
 #pragma mark -
 #pragma mark Collection View Delegate
 
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(PSUICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(PSUICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(PSUICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(PSUICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)collectionView:(PSUICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)collectionView:(PSUICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)collectionView:(PSUICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
