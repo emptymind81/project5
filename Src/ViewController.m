@@ -97,19 +97,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-//for ios6
+//for ios6, root view controller will decide, so this code won't make much difference
+/*
 - (BOOL)shouldAutorotate
 {
-    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-    if (orientation == UIInterfaceOrientationLandscapeLeft  ||orientation ==  UIInterfaceOrientationLandscapeRight )
-    {
-        return YES;
-    }
-    return NO;
+    //UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+    //if (orientation == UIInterfaceOrientationLandscapeLeft  ||orientation ==  UIInterfaceOrientationLandscapeRight )
+    //{
+    //    return YES;
+    //}
+    //return NO;
 }
 
-//for ios5
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return (UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight);
+}*/
 
+//for ios5
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft  ||
@@ -119,12 +124,6 @@
     }
     return NO;
 }
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return (UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight);
-}
-
 
 -(void) buttonClicked:(id)sender
 {
@@ -295,6 +294,11 @@
                          [self.navigationController pushViewController:view_controller animated:false];
                      }];
 }
-
+/*
+- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers
+{
+    return false;
+}
+*/
 
 @end

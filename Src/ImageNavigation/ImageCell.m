@@ -30,7 +30,7 @@
     if (self = [super initWithFrame:frame]) {
         /*UIView *background = [[UIView alloc] init];
         background.backgroundColor = [UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:1.000];
-        self.selectedBackgroundView = background;
+        //self.selectedBackgroundView = background;
         self.backgroundColor = [UIColor colorWithRed:0.509 green:0.519 blue:0.500 alpha:1.000];*/
         
         self.backgroundColor = [UIColor clearColor];
@@ -40,9 +40,15 @@
         CGRect rect = self.frame;
         rect = m_image_view.frame;
         m_image_view.frame = self.bounds;
+        m_image_view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         m_image_view.contentMode = UIViewContentModeTopLeft;
         //m_image_view.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:m_image_view];
+        
+        //int h = m_image_view.frame.size.height;
+        
+        //m_image_view.layer.borderColor = [UIColor greenColor].CGColor;
+        //m_image_view.layer.borderWidth = 2.0f;
          
     }
     return self;

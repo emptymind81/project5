@@ -37,7 +37,7 @@ typedef enum
     
     int m_total_wine_num;
     
-    PSUICollectionView* m_collection_view;
+    ImageNavigationViewController* m_image_navigation_controller;
     
     UIButton* m_back_button;
 }
@@ -150,29 +150,20 @@ typedef enum
         [image_array addObject:image];
     }
     
-    ImageTableLayout *layout = [[ImageTableLayout alloc] init];
-    layout.imageArray = image_array;
-    layout.spaceBetweenImage = 0;
+    m_image_navigation_controller = [[ImageNavigationViewController alloc] init];
+    m_image_navigation_controller.imageArray = image_array;
+    m_image_navigation_controller.spaceBetweenImage = 0;
+    m_image_navigation_controller.showScrollBar = false;
+    m_image_navigation_controller.enableScroll = false;
+    m_image_navigation_controller.allowsMultipleSelection = false;
+    m_image_navigation_controller.delegate = self;
+    m_image_navigation_controller.view.frame = CGRectMake(0, 0, 1024, 768);
     
-    CGRect frame = CGRectMake(0, 0, 1024, 768);
-    m_collection_view = [[PSUICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
-    m_collection_view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    m_collection_view.delegate = self;
-    m_collection_view.dataSource = self;
-    m_collection_view.backgroundColor = [UIColor clearColor];
-    [m_collection_view registerClass:[ImageCell class] forCellWithReuseIdentifier:WineCollectionViewCellIdentifier];
-    m_collection_view.allowsMultipleSelection = false;
-    [m_collection_view setScrollEnabled:NO];
-    m_collection_view.showsHorizontalScrollIndicator=NO;
-    m_collection_view.showsVerticalScrollIndicator=NO;
+    [self.view addSubview:m_image_navigation_controller.view];
     
-    [self.view addSubview:m_collection_view];
-    
-    m_collection_view.contentOffset = CGPointMake(1024*self.wineIndex, 0);
-    
+    m_image_navigation_controller.collectionView.contentOffset = CGPointMake(1024*self.wineIndex, 0);
     
     [self doOtherInit];
-
 }
 
 -(void) doOtherInit
@@ -357,7 +348,7 @@ typedef enum
     [self enableButtons:false];
     [self enableRecognizers:false];
     
-    m_collection_view.contentOffset = CGPointMake(m_collection_view.contentOffset.x-1024, m_collection_view.contentOffset.y);
+    m_image_navigation_controller.collectionView.contentOffset = CGPointMake(m_image_navigation_controller.collectionView.contentOffset.x-1024, m_image_navigation_controller.collectionView.contentOffset.y);
     self.wineIndex = (self.wineIndex-1+m_total_wine_num) % m_total_wine_num;
     
     [self showButtons:true];
@@ -395,7 +386,7 @@ typedef enum
     [self enableButtons:false];
     [self enableRecognizers:false];
     
-    m_collection_view.contentOffset = CGPointMake(m_collection_view.contentOffset.x+1024, m_collection_view.contentOffset.y);
+    m_image_navigation_controller.collectionView.contentOffset = CGPointMake(m_image_navigation_controller.collectionView.contentOffset.x+1024, m_image_navigation_controller.collectionView.contentOffset.y);
     self.wineIndex = (self.wineIndex+1+m_total_wine_num) % m_total_wine_num;
     
     [self showButtons:true];
@@ -475,91 +466,47 @@ typedef enum
     [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
     [[self.view layer] addAnimation:animation forKey:@"SwitchToView"];
 
-    
     [self.navigationController popViewControllerAnimated:FALSE];
 }
 
-#pragma mark -
-#pragma mark Collection View Data Source
-
-- (PSUICollectionViewCell *)collectionView:(PSUICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:WineCollectionViewCellIdentifier forIndexPath:indexPath];
-    
-    NSString* image_name = [NSString stringWithFormat:@"single-%d", indexPath.row+1];
-    cell.image = [UIImage imageNamed:image_name];
-    cell.frame = CGRectMake(indexPath.row*1024, 0, cell.image.size.width, cell.image.size.height);
-    
-    /*
-    //PSUICollectionViewCell* cell = [[PSUICollectionViewCell alloc] init];
-    cell.frame = CGRectMake(0, 0, 1024, 768);
-  
-    UIImage* image = [UIImage imageNamed:image_name];
-    UIImageView* image_view = [[UIImageView alloc] init];
-    image_view.image = image;
-    [cell addSubview:image_view];*/
-    
-    return cell;
-}
-
-- (CGSize)collectionView:(PSUICollectionView *)collectionView layout:(PSUICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString* image_name = [NSString stringWithFormat:@"single-%d", indexPath.row+1];
-    UIImage* image = [UIImage imageNamed:image_name];
-    CGSize size = {image.size.width, image.size.height};
-    
-    return size;
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(PSUICollectionView *)collectionView
-{
-    return 1;
-}
-
-- (NSInteger)collectionView:(PSUICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return m_total_wine_num;
-}
-
-#pragma mark -
-#pragma mark Collection View Delegate
-
-- (void)collectionView:(PSUICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)imageNavigationViewController:(ImageNavigationViewController *)imageNavigationViewController didSelectItem:(int)rowIndex image:(UIImage*)image
 {
     
 }
 
-- (void)collectionView:(PSUICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)imageNavigationViewController:(ImageNavigationViewController *)imageNavigationViewController didUnSelectItem:(int)rowIndex image:(UIImage*)image
 {
     
 }
 
-- (void)collectionView:(PSUICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+//for ios6, root view controller will decide, so this code won't make much difference
+/*
+ - (BOOL)shouldAutorotate
+ {
+ //UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+ //if (orientation == UIInterfaceOrientationLandscapeLeft  ||orientation ==  UIInterfaceOrientationLandscapeRight )
+ //{
+ //    return YES;
+ //}
+ //return NO;
+ }
+ 
+ - (NSUInteger)supportedInterfaceOrientations
+ {
+ return (UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight);
+ }*/
+
+//for ios5
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft  ||
+        interfaceOrientation ==  UIInterfaceOrientationLandscapeRight )
+    {
+        return YES;
+    }
+    return NO;
 }
 
-- (void)collectionView:(PSUICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
-- (BOOL)collectionView:(PSUICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
-- (BOOL)collectionView:(PSUICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
-- (BOOL)collectionView:(PSUICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return YES;
-}
 
 
 @end

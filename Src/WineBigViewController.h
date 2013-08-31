@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ImageNavigationViewController.h"
 
-@interface WineBigViewController : UIViewController<PSUICollectionViewDataSource, PSUICollectionViewDelegate>
+@interface WineBigViewController : UIViewController<ImageNavigationViewControllerDelegate>
 
 @property int wineIndex;
 

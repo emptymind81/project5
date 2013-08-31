@@ -10,13 +10,6 @@
 #import "AutoLayoutHelper.h"
 #import "WineBigViewController.h"
 #import "UIImage+Tint.h"
-#import "ImageTableLayout.h"
-#import "ImageCell.h"
-
-NSString *kDetailedViewControllerID = @"DetailView";    // view controller storyboard id
-NSString *kCellID = @"cellID";        // UICollectionViewCell storyboard id
-
-NSString *CollectionViewCellIdentifier = @"ImageCollectionViewCellIdentifier";
 
 @interface WinesViewController ()
 
@@ -40,7 +33,7 @@ NSString *CollectionViewCellIdentifier = @"ImageCollectionViewCellIdentifier";
     
     int m_wines_num;
     
-    PSUICollectionView* m_collection_view;
+    ImageNavigationViewController* m_image_navigation_controller;
     
 }
 
@@ -96,26 +89,22 @@ NSString *CollectionViewCellIdentifier = @"ImageCollectionViewCellIdentifier";
         [image_array addObject:image];
     }
     
-    ImageTableLayout *layout = [[ImageTableLayout alloc] init];
-    layout.imageArray = image_array;
-    layout.spaceBetweenImage = m_space_between;
-    
     int max_height = [self GetMaxHeight:m_wines_num];
     CGRect frame = CGRectMake(0, 768-83-max_height, 1024, max_height);
-    m_collection_view = [[PSUICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
-    m_collection_view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    m_collection_view.delegate = self;
-    m_collection_view.dataSource = self;
-    m_collection_view.backgroundColor = [UIColor clearColor];
-    [m_collection_view registerClass:[ImageCell class] forCellWithReuseIdentifier:CollectionViewCellIdentifier];
-    m_collection_view.allowsMultipleSelection = false;
-    m_collection_view.showsHorizontalScrollIndicator=NO;
-    m_collection_view.showsVerticalScrollIndicator=NO;
     
-    [self.view addSubview:m_collection_view];
+    m_image_navigation_controller = [[ImageNavigationViewController alloc] init];
+    m_image_navigation_controller.imageArray = image_array;
+    m_image_navigation_controller.spaceBetweenImage = m_space_between;
+    m_image_navigation_controller.showScrollBar = false;
+    m_image_navigation_controller.enableScroll = true;
+    m_image_navigation_controller.allowsMultipleSelection = false;
+    m_image_navigation_controller.delegate = self;
+    m_image_navigation_controller.view.autoresizingMask = UIViewAutoresizingNone;
     
-    //m_collection_view.layer.borderColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.5 alpha:1].CGColor;
-    //m_collection_view.layer.borderWidth = 2.0f;
+    [self.view addSubview:m_image_navigation_controller.view];
+    m_image_navigation_controller.view.frame = frame;
+    //m_image_navigation_controller.view.layer.borderColor = [UIColor redColor].CGColor;
+    //m_image_navigation_controller.view.layer.borderWidth = 2.0f;
     
     NSString* back_button_pic = @"wines-back-button.png";
     UIImage* back_button_image = [UIImage imageNamed:back_button_pic];
@@ -197,14 +186,12 @@ NSString *CollectionViewCellIdentifier = @"ImageCollectionViewCellIdentifier";
     
     UIImageView* view0 = m_image_views[0];
     int view0_new_left = view0.frame.origin.x + offset;
-    int view0_new_right = view0.frame.origin.x + view0.frame.size.width + offset;
     if (view0_new_left >= m_x_margin)
     {
         return;
     }
     
     UIImageView* viewlast = m_image_views[m_image_views.count-1];
-    int viewlast_new_left = viewlast.frame.origin.x + offset;
     int viewlast_new_right = viewlast.frame.origin.x + viewlast.frame.size.width + offset;
     if (viewlast_new_right <= 1024-m_x_margin)
     {
@@ -417,79 +404,44 @@ NSString *CollectionViewCellIdentifier = @"ImageCollectionViewCellIdentifier";
 }
 
 
-#pragma mark -
-#pragma mark Collection View Data Source
-
-- (PSUICollectionViewCell *)collectionView:(PSUICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)imageNavigationViewController:(ImageNavigationViewController *)imageNavigationViewController didSelectItem:(int)rowIndex image:(UIImage*)image
 {
-    ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CollectionViewCellIdentifier forIndexPath:indexPath];
-    
-    NSString* image_name = [NSString stringWithFormat:@"wine%d", indexPath.row+1];
-    cell.image = [UIImage imageNamed:image_name];
-    cell.frame = CGRectMake(0, 0, cell.image.size.width, cell.image.size.height);
-    
-    return cell;
+    [self handleImageClick:rowIndex];
 }
 
-- (CGSize)collectionView:(PSUICollectionView *)collectionView layout:(PSUICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString* image_name = [NSString stringWithFormat:@"wine%d", indexPath.row+1];
-    UIImage* image = [UIImage imageNamed:image_name];
-    CGSize size = {image.size.width, image.size.height};
-    
-    return size;
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(PSUICollectionView *)collectionView
-{
-    return 1;
-}
-
-- (NSInteger)collectionView:(PSUICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return m_wines_num;
-}
-
-#pragma mark -
-#pragma mark Collection View Delegate
-
-- (void)collectionView:(PSUICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)imageNavigationViewController:(ImageNavigationViewController *)imageNavigationViewController didUnSelectItem:(int)rowIndex image:(UIImage*)image
 {
     
 }
 
-- (void)collectionView:(PSUICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+//for ios6, root view controller will decide, so this code won't make much difference
+/*
+ - (BOOL)shouldAutorotate
+ {
+ //UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+ //if (orientation == UIInterfaceOrientationLandscapeLeft  ||orientation ==  UIInterfaceOrientationLandscapeRight )
+ //{
+ //    return YES;
+ //}
+ //return NO;
+ }
+ 
+ - (NSUInteger)supportedInterfaceOrientations
+ {
+ return (UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight);
+ }*/
+
+//for ios5
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft  ||
+        interfaceOrientation ==  UIInterfaceOrientationLandscapeRight )
+    {
+        return YES;
+    }
+    return NO;
 }
 
-- (void)collectionView:(PSUICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self handleImageClick:indexPath.row];
-}
-
-- (void)collectionView:(PSUICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
-- (BOOL)collectionView:(PSUICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
-- (BOOL)collectionView:(PSUICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
-- (BOOL)collectionView:(PSUICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return YES;
-}
 
 
 @end

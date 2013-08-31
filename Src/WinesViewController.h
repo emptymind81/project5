@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ImageNavigationViewController.h"
 
-@interface WinesViewController : UIViewController<PSUICollectionViewDataSource, PSUICollectionViewDelegate>
+@interface WinesViewController : UIViewController<ImageNavigationViewControllerDelegate>
 
 @property int seriIndex;
 @end

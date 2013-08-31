@@ -9,6 +9,9 @@
 #import "ImageTableLayout.h"
 
 @implementation ImageTableLayout
+{
+    NSMutableArray* m_prepared_attrs;
+}
 
 -(int) GetMaxHeight
 {
@@ -48,11 +51,9 @@
     return size;
 }
 
-- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
+-(void) prepareLayout
 {
-    //PSUICollectionView* view = self.collectionView;
-    
-    NSMutableArray* array = [[NSMutableArray alloc] init];
+    m_prepared_attrs = [[NSMutableArray alloc] init];
     int pos = 0;
     for (int i=0; i<self.imageArray.count; i++)
     {
@@ -66,12 +67,29 @@
         CGRect rect1 = CGRectMake(pos, 0, image.size.width+self.spaceBetweenImage, image.size.height);
         attributes.frame = rect1;
         //NSLog(@"rect.x=%.1f, rect.y=%.1f", rect.origin.x, rect.origin.y);
-        if(CGRectIntersectsRect(rect, attributes.frame))
+        //if(CGRectIntersectsRect(rect, attributes.frame))
         {
-            [array addObject:attributes];
+            [m_prepared_attrs addObject:attributes];
         }
         
         pos += image.size.width + self.spaceBetweenImage;
+    }
+}
+
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
+{
+    //PSUICollectionView* view = self.collectionView;
+    
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    for (int i=0; i<m_prepared_attrs.count; i++)
+    {
+        PSUICollectionViewLayoutAttributes* attributes = m_prepared_attrs[i];
+        CGRect frame = attributes.frame;
+        //NSLog(@"frame.x=%.1f, frame.y=%.1f", frame.origin.x, frame.origin.y);
+        if(CGRectIntersectsRect(rect, frame))
+        {
+            [array addObject:attributes];
+        }
     }
     return array;
 }
@@ -83,7 +101,7 @@
     
     PSUICollectionViewLayoutAttributes* attributes = [PSUICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     
-    int pos = 0;
+    /*int pos = 0;
     for (int i=0; i<indexPath.row; i++)
     {
         UIImage* image = self.imageArray[i];
@@ -94,7 +112,7 @@
     //CGSize size = image.size;
     
     CGRect rect1 = CGRectMake(pos, 0, image.size.width+self.spaceBetweenImage, image.size.height);
-    attributes.frame = rect1;
+    attributes.frame = rect1;*/
         
     return attributes;
 }

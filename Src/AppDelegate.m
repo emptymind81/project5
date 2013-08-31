@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "AutoRotateNavigationViewController.h"
 #import "ViewController.h"
 
 @implementation AppDelegate
@@ -26,7 +26,7 @@
    //self.viewController = room_view_controller;
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.navigationController = [[AutoRotateNavigationViewController alloc] initWithRootViewController:self.viewController];
     
     self.navigationController.navigationBarHidden = true;
     //[self.navigationController setWantsFullScreenLayout:YES];
@@ -64,5 +64,13 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#if __IPAD_OS_VERSION_MAX_ALLOWED >= __IPAD_6_0
+
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskLandscape;
+} 
+#endif
 
 @end
